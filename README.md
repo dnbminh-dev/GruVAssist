@@ -1,1 +1,1 @@
-**Enjoy!**
+**A theme for C++. Enjoy!**

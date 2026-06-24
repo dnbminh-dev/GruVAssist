@@ -2,7 +2,7 @@
   "name": "gruvbox-vassist",
   "displayName": "gruvbox-vassist",
   "description": "A mix between gruvbox and visual assist color scheme, based on Cherno's Visual Studio theme.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "minchdev",
   "engines": {
     "vscode": "^1.125.0"

@@ -212,6 +212,16 @@
             ],
             "settings": { "foreground": "#F44747" }
         },
+        {
+            "name": "Keyword - CMake Property",
+            "scope": [
+                "support.type.property.cmake",
+                "support.function.commandProperty.cmake",
+            ],
+            "settings": {
+                "foreground": "#F44747",
+            }
+        },
 
         //  KEYWORDS — MISC / OTHER
         {
@@ -273,9 +283,10 @@
             "name": "Keyword - Lua Special (and/or/not/in/local)",
             "scope": [
                 "keyword.operator.lua",
+                "keyword.operator.logical.lua",
                 "keyword.other.lua"
             ],
-            "settings": { "foreground": "#C586C0" }
+            "settings": { "foreground": "#D4D4D4" }
         },
         {
             "name": "Keyword - General Fallback",
@@ -642,7 +653,7 @@
             "scope": [
                 "entity.name.function.lua"
             ],
-            "settings": { "foreground": "#DCDCAA" }
+            "settings": { "foreground": "#f09132" }
         },
         {
             "name": "Function - Lua Method Declaration (obj:method())",
@@ -656,7 +667,17 @@
             "scope": [
                 "support.function.lua"
             ],
-            "settings": { "foreground": "#4EC9B0" }
+            "settings": { "foreground": "#cbffb4" }
+        },
+        {
+            "name": "Function - CMake",
+            "scope": [
+                "support.function.cmake",
+
+            ],
+            "settings": {
+                "foreground": "#f09132",
+            }
         },
         {
             "name": "Function - General Support / Library",
@@ -664,7 +685,7 @@
                 "support.function",
                 "variable.function"
             ],
-            "settings": { "foreground": "#DCDCAA" }
+            "settings": { "foreground": "#f09132" }
         },
 
         //  PARAMETERS / FUNCTION ARGUMENTS
@@ -832,6 +853,13 @@
                 "variable.language.self.lua"
             ],
             "settings": { "foreground": "#D16969", "fontStyle": "italic" }
+        },
+        {
+            "name": "Variable - CMake",
+            "scope": [
+                "support.type.variable.cmake"
+            ],
+            "settings": { "foreground": "#C586C0", "fontStyle": "italic" }
         },
         {
             "name": "Variable - Block-level (meta.block scope)",
@@ -1430,7 +1458,6 @@
             "name": "Support - Class/Type (Library)",
             "scope": [
                 "support.class",
-                "support.type",
                 "support.type.sys-types"
             ],
             "settings": { "foreground": "#4EC9B0" }
