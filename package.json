@@ -1,0 +1,29 @@
+{
+  "name": "gruvassist",
+  "displayName": "GruVAssist",
+  "description": "A mix between gruvbox and visual assist color scheme, based on Cherno's Visual Studio theme.",
+  "version": "0.0.1",
+  "publisher": "mindev",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "gruvbox",
+    "visual assist",
+    "gruvbox visual assist",
+    "cherno"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "GruVAssist",
+        "uiTheme": "vs-dark",
+        "path": "./themes/GruVAssist-color-theme.json"
+      }
+    ]
+  }
+}
