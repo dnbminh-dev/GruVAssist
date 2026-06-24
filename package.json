@@ -7,6 +7,11 @@
   "engines": {
     "vscode": "^1.125.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dnbminh-dev/GruVAssist.git"
+  },
+  "icon": "logo.ico",
   "categories": [
     "Themes"
   ],
