@@ -709,7 +709,7 @@
             "scope": [
                 "variable.parameter.cs"
             ],
-            "settings": { "foreground": "#D3869B" }
+            "settings": { "foreground": "#9CDCFE" }
         },
         {
             "name": "Parameter - Python Function Parameter (positional)",
@@ -717,7 +717,7 @@
                 "variable.parameter.python",
                 "meta.function.parameters.python variable.parameter"
             ],
-            "settings": { "foreground": "#D3869B" }
+            "settings": { "foreground": "#9CDCFE" }
         },
         {
             "name": "Parameter - Python self / cls",
@@ -733,14 +733,14 @@
                 "variable.parameter.args.python",
                 "variable.parameter.kwargs.python"
             ],
-            "settings": { "foreground": "#D3869B", "fontStyle": "italic" }
+            "settings": { "foreground": "#9CDCFE", "fontStyle": "italic" }
         },
         {
             "name": "Parameter - Lua Function Parameter",
             "scope": [
                 "variable.parameter.lua"
             ],
-            "settings": { "foreground": "#D3869B" }
+            "settings": { "foreground": "#9CDCFE" }
         },
 
         //  VARIABLES
@@ -845,7 +845,7 @@
                 "variable.other.global.lua",
                 "variable.global.lua"
             ],
-            "settings": { "foreground": "#FF6B6B" }
+            "settings": { "foreground": "#9CDCFE" }
         },
         {
             "name": "Variable - Lua self",
@@ -859,7 +859,7 @@
             "scope": [
                 "support.type.variable.cmake"
             ],
-            "settings": { "foreground": "#C586C0", "fontStyle": "italic" }
+            "settings": { "foreground": "#9CDCFE", "fontStyle": "italic" }
         },
         {
             "name": "Variable - Block-level (meta.block scope)",
