@@ -2,72 +2,107 @@
     "name": "GruVAssist",
 
     "colors": {
-        "editor.background":                    "#141414",
+        "editor.background":                    "#161616",
         "editor.foreground":                    "#EBDBB2",
-        "editorLineNumber.foreground":          "#5A5A5A",
-        "editorLineNumber.activeForeground":    "#ebebeb",
-        "editor.lineHighlightBackground":       "#1d1d1d",
+        "editorLineNumber.foreground":          "#504945",
+        "editorLineNumber.activeForeground":    "#D5C4A1",
+        "editor.lineHighlightBackground":       "#1c1c1c",
         "editor.selectionBackground":           "#3c383680",
         "editorCursor.foreground":              "#EBDBB2",
 
-        "activityBar.background":               "#1d1d1d",
-        "activityBar.border":                   "#00000000",
-        "sideBar.background":                   "#1d1d1d",
-        "sideBar.border":                       "#282828",
+        "activityBar.background":               "#1c1c1c",
+        "activityBar.border":                   "#2a2a2a",
+        "sideBar.background":                   "#1c1c1c",
+        "sideBar.border":                       "#2a2a2a",
         "sideBarTitle.foreground":              "#A89984",
-        "sideBarSectionHeader.background":      "#00000000",
+        "sideBarSectionHeader.background":      "#232323",
 
-        "tab.activeBackground":                 "#141414",
+        "tab.activeBackground":                 "#161616",
         "tab.activeForeground":                 "#EBDBB2",
-        "tab.activeBorder":                     "#458588",
-        "tab.inactiveBackground":               "#1d1d1d",
+        "tab.activeBorder":                     "#689d6a",
+        "tab.inactiveBackground":               "#1c1c1c",
         "tab.inactiveForeground":               "#665c54",
-        "editorGroupHeader.tabsBackground":     "#1d1d1d",
-        "editorGroupHeader.tabsBorder":         "#00000000",
+        "editorGroupHeader.tabsBackground":     "#1c1c1c",
+        "editorGroupHeader.tabsBorder":         "#2a2a2a",
 
-        "statusBar.background":                 "#1d1d1d",
-        "statusBar.border":                     "#282828",
+        "statusBar.background":                 "#1c1c1c",
+        "statusBar.border":                     "#2a2a2a",
         "statusBar.foreground":                 "#A89984",
-        "editorWidget.background":              "#1d1d1d",
+        "editorWidget.background":              "#232323",
         "editorWidget.border":                  "#3c3836",
 
-        "activityBarBadge.background":          "#458588",
-        "badge.background":                     "#458588",
-        "progressBar.background":               "#458588",
+        "activityBarBadge.background":          "#3c5a3e",
+        "activityBarBadge.foreground":          "#8ec07c",
+        "badge.background":                     "#3c5a3e",
+        "badge.foreground":                     "#8ec07c",
+        "progressBar.background":               "#689d6a",
 
-        "titleBar.activeBackground":            "#1d1d1d",
+        "titleBar.activeBackground":            "#161616",
         "titleBar.activeForeground":            "#EBDBB2",
-        "titleBar.inactiveBackground":          "#1d1d1d",
+        "titleBar.inactiveBackground":          "#161616",
         "titleBar.inactiveForeground":          "#665c54",
-        "titleBar.border":                      "#282828",
+        "titleBar.border":                      "#2a2a2a",
 
         "menubar.selectionBackground":          "#3c3836",
         "menubar.selectionForeground":          "#EBDBB2",
-        "menu.background":                      "#1d1d1d",
+        "menu.background":                      "#232323",
         "menu.foreground":                      "#EBDBB2",
-        "menu.selectionBackground":             "#458588",
-        "menu.selectionForeground":             "#FFFFFF"
+        "menu.selectionBackground":             "#3c5a3e",
+        "menu.selectionForeground":             "#8ec07c",
+        "menu.border":                          "#2a2a2a",
+        "menu.separatorBackground":             "#2a2a2a"
     },
+
 
     "semanticHighlighting": true,
 
     "semanticTokenColors": {
 
-        // C/C++ only — operator overload keyword at declaration site (operator+, operator<<, operator++, etc.)
+        // ── OPERATOR OVERLOADS ────────────────────────────────────────────────
+        // operator keyword at declaration site (operator+, operator<<, etc.)
         "memberOperatorOverload:cpp": "#EBDBB2",
         "operatorOverload:cpp":       "#EBDBB2",
 
-        // C/C++ only — reset punctuation so braces/parens never inherit orange from operator context
-        "punctuation": "#EBDBB2",
+        // ── PUNCTUATION RESET ─────────────────────────────────────────────────
+        // Prevent braces/parens from inheriting orange from operator context
+        "punctuation":     "#EBDBB2",
         "punctuation:cpp": "#EBDBB2",
         "punctuation:c":   "#EBDBB2",
 
-        // C/C++ only — static / member property access (e.g. Fibonacci<N-1>::value)
-        "property:cpp":        "#9CDCFE",
-        "property.static:cpp": "#9CDCFE",
-        "variable.static:cpp": "#9CDCFE",
-        "property:c":          "#9CDCFE",
-        "property.static:c":   "#9CDCFE"
+        // ── VARIABLES — LOCAL / GLOBAL  →  blue #9CDCFE ───────────────────────
+        // cpptools emits "variable" for locals, globals, and parameters.
+        // We set the base "variable" token here; "property" overrides below
+        // for members, so the two never conflict.
+        "variable":        "#9CDCFE",
+        "variable:cpp":    "#9CDCFE",
+        "variable:c":      "#9CDCFE",
+
+        // explicit modifier variants (cpptools / clangd)
+        "variable.local:cpp":   "#9CDCFE",
+        "variable.local:c":     "#9CDCFE",
+        "variable.global:cpp":  "#4EC9B0",
+        "variable.global:c":    "#4EC9B0",
+
+        // ── VARIABLES — MEMBER / FIELD  →  tan #dfd9c2 ────────────────────────
+        // cpptools uses semantic type "property" for instance member variables.
+        // clangd uses "field". Both are covered.
+        // C struct fields (C) are also "property" in cpptools, "field" in clangd.
+
+        // cpptools (ms-vscode.cpptools)
+        "property:cpp":          "#dfd9c2",
+        "property:c":            "#dfd9c2",
+        "property.static:cpp":   "#dfd9c2",
+        "property.static:c":     "#dfd9c2",
+
+        // clangd (llvm-vs-code-extensions.vscode-clangd)
+        "field:cpp":             "#dfd9c2",
+        "field:c":               "#dfd9c2",
+        "field.static:cpp":      "#dfd9c2",
+        "field.static:c":        "#dfd9c2",
+
+        // cpptools also emits variable.static for static members in some cases
+        "variable.static:cpp":   "#dfd9c2",
+        "variable.static:c":     "#dfd9c2"
     },
 
     "tokenColors": [
@@ -144,7 +179,7 @@
                 "entity.name.other.preprocessor.macro.predefined.NDEBUG.cpp",
                 "entity.name.other.preprocessor.macro.predefined.NDEBUG.c",
                 "entity.name.other.preprocessor.macro.predefined._MSC_VER.cpp",
-                "entity.name.other.preprocessor.macro.predefined._MSC_VER.c",
+                "entity.name.other.preprocessor.macro.predefined._MSC_VER.c"
             ],
             "settings": { "foreground": "#d3869b" }
         },
@@ -181,8 +216,6 @@
         {
             "name": "Preprocessor - Predefined Macros (__FILE__ __LINE__ __DATE__ etc.)",
             "scope": [
-                "keyword.other.unit.cpp",
-                "keyword.other.unit.c",
                 "support.constant.cpp"
             ],
             "settings": { "fontStyle": "italic", "foreground": "#d3869b" }
@@ -333,13 +366,9 @@
                 "keyword.other.operator.cpp",
                 "keyword.operator.conversion.cpp",
                 "keyword.operator.overload.cpp",
-                "meta.body.class.cpp",
-                "meta.block.class.cpp",
-                // operator keyword inside the special operator-overload function definition context
                 "meta.head.function.definition.special.operator-overload.cpp keyword",
                 "meta.function.definition.special.operator-overload.cpp keyword.other",
                 "meta.function.definition.special.operator-overload.cpp keyword.operator",
-                // operator keyword in class body with no deeper grammar scope (forward declarations, etc.)
                 "meta.body.class.cpp keyword.other",
                 "meta.block.class.cpp keyword.other"
             ],
@@ -389,7 +418,7 @@
                 "support.other.namespace.use.php",
                 "support.other.namespace.php"
             ],
-            "settings": { "foreground": "#dfd9c2" }
+            "settings": { "foreground": "#D4D4D4" }
         },
         {
             "name": "Namespace - Scope Resolution Operator (::)",
@@ -400,7 +429,7 @@
             "settings": { "foreground": "#B2B2B2" }
         },
 
-        // == CLASS / TYPE NAMES 
+        // == CLASS / TYPE NAMES
         {
             "name": "Class - Name at Declaration",
             "scope": [
@@ -419,7 +448,7 @@
                 "entity.name.type.record.cs",
                 "entity.name.type.class.python",
                 "meta.class.python entity.name.type",
-                "entity.name.type.class.lua",
+                "entity.name.type.class.lua"
             ],
             "settings": { "foreground": "#ffd700" }
         },
@@ -456,7 +485,7 @@
             "settings": { "foreground": "#4EC9B0" }
         },
 
-        // == TYPES = PRIMITIVES 
+        // == TYPES = PRIMITIVES
         {
             "name": "Type - Primitive / Built-in",
             "scope": [
@@ -471,7 +500,6 @@
                 "storage.type.built-in",
                 "keyword.type.cs",
                 "storage.type.primitive.cs",
-                // conversion operator target type: explicit operator bool() / explicit operator long long()
                 "entity.name.operator.type.cpp"
             ],
             "settings": { "foreground": "#F44747" }
@@ -500,17 +528,6 @@
             ],
             "settings": { "foreground": "#f09132" }
         },
-        // {
-        //     "name": "Function - Call (invocation)",
-        //     "scope": [
-        //         "meta.function-call.cpp",
-        //         "meta.function-call.c",
-        //         "meta.method-call.cs",
-        //         "meta.function-call.cs",
-        //         "meta.function-call.python entity.name.function.python"
-        //     ],
-        //     "settings": { "foreground": "#DCDCAA" }
-        // },
         {
             "name": "Function - Built-in Library",
             "scope": [
@@ -540,7 +557,7 @@
             "settings": { "foreground": "#9CDCFE" }
         },
         {
-            "name": "Parameter - self / cls (Python), *args / **kwargs (italic)",
+            "name": "Parameter - self / cls (Python)",
             "scope": [
                 "variable.parameter.function.language.special.self.python",
                 "variable.parameter.function.language.special.cls.python"
@@ -557,10 +574,13 @@
         },
 
         // == VARIABLES
+        // NOTE: The semantic distinction between local/global (blue) and
+        // member/static (tan) is driven by semanticTokenColors above.
+        // TextMate rules here are the fallback when the LSP is not active
+        // (e.g. no IntelliSense, plain file open, non-C/C++ languages).
         {
-            "name": "Variable - Local",
+            "name": "Variable - Local / Global (TextMate fallback)",
             "scope": [
-                "variable",
                 "variable.other",
                 "variable.other.local.cpp",
                 "variable.other.cpp",
@@ -578,7 +598,7 @@
             "settings": { "foreground": "#9CDCFE" }
         },
         {
-            "name": "Variable - Member / Field",
+            "name": "Variable - Member / Field (TextMate fallback — C++, C struct, C#, Python, Lua)",
             "scope": [
                 "variable.other.member.cpp",
                 "variable.other.field.cpp",
@@ -587,21 +607,20 @@
                 "entity.name.variable.property.cs",
                 "variable.other.field.python",
                 "meta.attribute.python variable.other",
-                // static member accessed via :: (e.g. Fibonacci<N-1>::value)
                 "variable.other.object.property.cpp",
                 "variable.other.property.cpp",
                 "entity.name.variable.cpp",
                 "entity.name.variable.field.cpp",
                 "entity.other.attribute.lua"
             ],
-            "settings": { "foreground": "#9CDCFE" }
+            "settings": { "foreground": "#dfd9c2" }
         },
         {
-            "name": "Variable - Static Member (italic)",
+            "name": "Variable - Static Member (TextMate fallback — italic)",
             "scope": [
                 "variable.other.static.cpp"
             ],
-            "settings": { "fontStyle": "italic", "foreground": "#9CDCFE" }
+            "settings": { "fontStyle": "italic", "foreground": "#dfd9c2" }
         },
         {
             "name": "Variable - this / self / cls",
@@ -621,10 +640,7 @@
         {
             "name": "Constant - Numeric Literals (digits, all bases)",
             "scope": [
-                // Generic fallback
                 "constant.numeric",
-
-                // C++ -- decimal, hex (0x), octal (0), binary (0b), float
                 "constant.numeric.cpp",
                 "constant.numeric.decimal.cpp",
                 "constant.numeric.hex.cpp",
@@ -632,23 +648,17 @@
                 "constant.numeric.binary.cpp",
                 "constant.numeric.integer.cpp",
                 "constant.numeric.floating-point.cpp",
-
-                // C -- same set
                 "constant.numeric.c",
                 "constant.numeric.decimal.c",
                 "constant.numeric.hex.c",
                 "constant.numeric.octal.c",
                 "constant.numeric.binary.c",
                 "constant.numeric.floating-point.c",
-
-                // C# -- decimal, hex (0x), binary (0b, C#7+), float
                 "constant.numeric.cs",
                 "constant.numeric.integer.cs",
                 "constant.numeric.float.cs",
                 "constant.numeric.hex.cs",
                 "constant.numeric.binary.cs",
-
-                // Python, Lua (kept for completeness)
                 "constant.numeric.python",
                 "constant.numeric.integer.python",
                 "constant.numeric.float.python",
@@ -666,7 +676,6 @@
         {
             "name": "Constant - Numeric Suffixes & UDL (u/L/f/ULL/0x prefix/etc.)",
             "scope": [
-                // C++ suffixes per base  (u L f ULL ull etc.)
                 "keyword.other.unit.cpp",
                 "keyword.other.unit.decimal.cpp",
                 "keyword.other.unit.hexadecimal.cpp",
@@ -674,22 +683,16 @@
                 "keyword.other.unit.binary.cpp",
                 "keyword.other.unit.float.cpp",
                 "keyword.other.unit.user-defined.cpp",
-
-                // C suffixes
                 "keyword.other.unit.c",
                 "keyword.other.unit.decimal.c",
                 "keyword.other.unit.hexadecimal.c",
                 "keyword.other.unit.octal.c",
                 "keyword.other.unit.binary.c",
                 "keyword.other.unit.float.c",
-
-                // C# suffixes  (u U l L ul UL f F d D m M)
                 "keyword.other.unit.cs",
                 "keyword.other.unit.decimal.cs",
                 "keyword.other.unit.hexadecimal.cs",
                 "keyword.other.unit.binary.cs",
-
-                // Generic fallbacks used by some grammar versions
                 "keyword.other.unit.suffix",
                 "keyword.other.unit"
             ],
@@ -848,13 +851,11 @@
         },
         {
             "name": "String - Regular Expression",
-            "scope": [
-                "string.regexp"
-            ],
+            "scope": [ "string.regexp" ],
             "settings": { "foreground": "#B5CEA8" }
         },
 
-        // == GENERICS / TEMPLATE
+        // == GENERICS / TEMPLATES
         {
             "name": "Generic - C++ Template Angle Brackets",
             "scope": [
@@ -874,9 +875,7 @@
         },
         {
             "name": "Generic - C# Constraint (where T : ...)",
-            "scope": [
-                "keyword.where.cs"
-            ],
+            "scope": [ "keyword.where.cs" ],
             "settings": { "foreground": "#C586C0" }
         },
         {
@@ -941,9 +940,7 @@
         // == CSS
         {
             "name": "CSS Class Selector",
-            "scope": [
-                "entity.other.attribute-name.class"
-            ],
+            "scope": [ "entity.other.attribute-name.class" ],
             "settings": { "foreground": "#D7BA7D" }
         },
         {
@@ -979,16 +976,12 @@
         },
         {
             "name": "Markdown - Inline Code",
-            "scope": [
-                "text.html.markdown markup.inline.raw.markdown"
-            ],
+            "scope": [ "text.html.markdown markup.inline.raw.markdown" ],
             "settings": { "foreground": "#CE9178" }
         },
         {
             "name": "Markdown - Inline Code Punctuation",
-            "scope": [
-                "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown"
-            ],
+            "scope": [ "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown" ],
             "settings": { "foreground": "#5A5A5A" }
         },
         {
@@ -1037,7 +1030,6 @@
                 "markup.raw.block",
                 "markup.raw.block.fenced.markdown",
                 "punctuation.definition.fenced.markdown",
-                "variable.language.fenced.markdown",
                 "punctuation.section.class.end"
             ],
             "settings": { "foreground": "#404040" }
@@ -1058,17 +1050,17 @@
             "settings": { "foreground": "#D4D4D4" }
         },
         {
-            "name": "Markup - Inserted / Deleted / Changed (diff)",
+            "name": "Markup - Inserted (diff)",
             "scope": [ "markup.inserted" ],
             "settings": { "foreground": "#81B88B" }
         },
         {
-            "name": "Markup - Deleted",
+            "name": "Markup - Deleted (diff)",
             "scope": [ "markup.deleted" ],
             "settings": { "foreground": "#C74E39" }
         },
         {
-            "name": "Markup - Changed",
+            "name": "Markup - Changed (diff)",
             "scope": [ "markup.changed" ],
             "settings": { "foreground": "#E2C08D" }
         },
