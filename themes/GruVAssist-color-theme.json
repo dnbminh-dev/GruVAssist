@@ -1,57 +1,91 @@
 {
     "name": "GruVAssist",
+
+    //  PALETTE REFERENCE
+    //  bg0        #141414   editor background
+    //  bg1        #1d1d1d   panels / sidebar
+    //  bg2        #282828   borders
+    //  bg3        #3c3836   selections / subtle dividers
+    //  fg0        #EBDBB2   primary text / foreground
+    //  fg1        #dfd9c2   slightly dimmed text
+    //  fg2        #c1b6a3   strings / muted text
+    //  fg3        #A89984   ui labels / sidebar titles
+    //  fg4        #665c54   inactive tabs / dimmed
+    //  fg5        #504945   line numbers
+    //
+    //  red        #F44747   keywords / storage / control / errors
+    //  orange     #f09132   function declarations
+    //  yellow     #ffd700   type / class names
+    //  yellow2    #DCDCAA   function calls / member vars
+    //  green      #6A9955   comments
+    //  green2     #cbffb4   builtins (lib functions)
+    //  teal       #4EC9B0   types-in-use / interfaces
+    //  blue       #458588   accent (tabs, badges, menus)
+    //  blue2      #569CD6   variables / parameters
+    //  blue3      #9CDCFE   local variables / params
+    //  blue4      #4FC1FF   constants
+    //  purple     #C586C0   import / module keywords
+    //  purple2    #e0aad6   control flow keywords
+    //  pink       #d3869b   numbers / macro names
+    //  tan        #dfd9c2   namespace names
+    //  gray       #D4D4D4   operators / lua specials
+    //  gray2      #B2B2B2   pointer ops / scope resolution / template brackets
+    //  gold       #D7BA7D   escape sequences / format placeholders
+
     "colors": {
-        "editor.background": "#141414",
-        "editor.foreground": "#EBDBB2",
-        "editorLineNumber.foreground": "#504945",
-        "editorLineNumber.activeForeground": "#ebebeb",
-        "editor.lineHighlightBackground": "#1d1d1d",
-        "editor.selectionBackground": "#3c383680",
-        "editorCursor.foreground": "#EBDBB2",
+        "editor.background":                    "#141414",
+        "editor.foreground":                    "#EBDBB2",
+        "editorLineNumber.foreground":          "#504945",
+        "editorLineNumber.activeForeground":    "#ebebeb",
+        "editor.lineHighlightBackground":       "#1d1d1d",
+        "editor.selectionBackground":           "#3c383680",
+        "editorCursor.foreground":              "#EBDBB2",
 
-        "activityBar.background": "#1d1d1d",
-        "activityBar.border": "#00000000",
-        "sideBar.background": "#1d1d1d",
-        "sideBar.border": "#282828",
-        "sideBarTitle.foreground": "#A89984",
-        "sideBarSectionHeader.background": "#00000000",
+        "activityBar.background":               "#1d1d1d",
+        "activityBar.border":                   "#00000000",
+        "sideBar.background":                   "#1d1d1d",
+        "sideBar.border":                       "#282828",
+        "sideBarTitle.foreground":              "#A89984",
+        "sideBarSectionHeader.background":      "#00000000",
 
-        "tab.activeBackground": "#141414",
-        "tab.activeForeground": "#EBDBB2",
-        "tab.activeBorder": "#458588",
-        "tab.inactiveBackground": "#1d1d1d",
-        "tab.inactiveForeground": "#665c54",
-        "editorGroupHeader.tabsBackground": "#1d1d1d",
-        "editorGroupHeader.tabsBorder": "#00000000",
+        "tab.activeBackground":                 "#141414",
+        "tab.activeForeground":                 "#EBDBB2",
+        "tab.activeBorder":                     "#458588",
+        "tab.inactiveBackground":               "#1d1d1d",
+        "tab.inactiveForeground":               "#665c54",
+        "editorGroupHeader.tabsBackground":     "#1d1d1d",
+        "editorGroupHeader.tabsBorder":         "#00000000",
 
-        "statusBar.background": "#1d1d1d",
-        "statusBar.border": "#282828",
-        "statusBar.foreground": "#A89984",
-        "editorWidget.background": "#1d1d1d",
-        "editorWidget.border": "#3c3836",
-        
-        "activityBarBadge.background": "#458588",
-        "badge.background": "#458588",
-        "progressBar.background": "#458588",
+        "statusBar.background":                 "#1d1d1d",
+        "statusBar.border":                     "#282828",
+        "statusBar.foreground":                 "#A89984",
+        "editorWidget.background":              "#1d1d1d",
+        "editorWidget.border":                  "#3c3836",
 
-        "titleBar.activeBackground": "#1d1d1d",
-        "titleBar.activeForeground": "#EBDBB2",
-        "titleBar.inactiveBackground": "#1d1d1d",
-        "titleBar.inactiveForeground": "#665c54",
-        "titleBar.border": "#282828",
-        
-        "menubar.selectionBackground": "#3c3836",
-        "menubar.selectionForeground": "#EBDBB2",
-        "menu.background": "#1d1d1d",
-        "menu.foreground": "#EBDBB2",
-        "menu.selectionBackground": "#458588",
-        "menu.selectionForeground": "#FFFFFF"
+        "activityBarBadge.background":          "#458588",
+        "badge.background":                     "#458588",
+        "progressBar.background":               "#458588",
+
+        "titleBar.activeBackground":            "#1d1d1d",
+        "titleBar.activeForeground":            "#EBDBB2",
+        "titleBar.inactiveBackground":          "#1d1d1d",
+        "titleBar.inactiveForeground":          "#665c54",
+        "titleBar.border":                      "#282828",
+
+        "menubar.selectionBackground":          "#3c3836",
+        "menubar.selectionForeground":          "#EBDBB2",
+        "menu.background":                      "#1d1d1d",
+        "menu.foreground":                      "#EBDBB2",
+        "menu.selectionBackground":             "#458588",
+        "menu.selectionForeground":             "#FFFFFF"
     },
+
     "tokenColors": [
 
-        //  COMMENTS
+        // == COMMENTS
+        // #6A9955  italic  = all comments across all languages
         {
-            "name": "Comment - General",
+            "name": "Comment",
             "scope": [
                 "comment",
                 "punctuation.definition.comment"
@@ -59,25 +93,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#6A9955" }
         },
         {
-            "name": "Comment - C++ Line (//) and Block (/* */)",
-            "scope": [
-                "comment.line.double-slash.cpp",
-                "comment.block.cpp",
-                "comment.line.double-slash.c",
-                "comment.block.c"
-            ],
-            "settings": { "fontStyle": "italic", "foreground": "#6A9955" }
-        },
-        {
-            "name": "Comment - C# Line and Block",
-            "scope": [
-                "comment.line.double-slash.cs",
-                "comment.block.cs"
-            ],
-            "settings": { "fontStyle": "italic", "foreground": "#6A9955" }
-        },
-        {
-            "name": "Comment - C# XML Doc (/// <summary> etc.)",
+            "name": "Comment - C# XML Doc (triple-slash tags, slightly brighter)",
             "scope": [
                 "comment.line.documentation.cs",
                 "comment.block.documentation.cs",
@@ -86,202 +102,212 @@
             ],
             "settings": { "fontStyle": "italic", "foreground": "#4CAF82" }
         },
+
+        // == PREPROCESSOR DIRECTIVES
+        // #F44747  = directive keywords (#define #include #ifdef =)
+        // #d3869b  = the macro name defined after #define
+        // #c1b6a3  = the include path string
         {
-            "name": "Comment - Python Line (#)",
+            "name": "Preprocessor - Directive Keywords",
             "scope": [
-                "comment.line.number-sign.python"
+                "keyword.control.directive",
+                "keyword.control.directive.cpp",
+                "keyword.control.directive.c",
+                "keyword.control.directive.include.cpp",
+                "keyword.control.directive.include.c",
+                "keyword.control.directive.define.cpp",
+                "keyword.control.directive.define.c",
+                "keyword.control.directive.conditional.cpp",
+                "keyword.control.directive.conditional.c",
+                "keyword.control.directive.conditional.ifdef.cpp",
+                "keyword.control.directive.conditional.ifdef.c",
+                "keyword.control.directive.conditional.ifndef.cpp",
+                "keyword.control.directive.conditional.ifndef.c",
+                "keyword.control.directive.conditional.if.cpp",
+                "keyword.control.directive.conditional.if.c",
+                "keyword.control.directive.conditional.defined.cpp",
+                "keyword.control.directive.conditional.defined.c",
+                "keyword.control.directive.elif.cpp",
+                "keyword.control.directive.elif.c",
+                "keyword.control.directive.else.cpp",
+                "keyword.control.directive.else.c",
+                "keyword.control.directive.endif.cpp",
+                "keyword.control.directive.endif.c",
+                "keyword.control.directive.pragma.cpp",
+                "keyword.control.directive.pragma.c",
+                "keyword.control.directive.undef.cpp",
+                "keyword.control.directive.line.cpp",
+                "keyword.control.directive.error.cpp",
+                "entity.other.attribute-name.pragma.preprocessor.cpp",
+                "entity.other.attribute-name.pragma.preprocessor.c",
+                "punctuation.definition.directive.cpp",
+                "punctuation.definition.directive.c",
+                "keyword.preprocessor.cs",
+                "keyword.control.directive.cs",
+                "meta.preprocessor.cs"
             ],
-            "settings": { "fontStyle": "italic", "foreground": "#6A9955" }
+            "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Comment - Lua Line (--) and Block (--[[ ]])",
+            "name": "Preprocessor - Macro Name (symbol after #define)",
             "scope": [
-                "comment.line.double-dash.lua",
-                "comment.block.lua"
+                "entity.name.function.preprocessor.cpp",
+                "entity.name.function.preprocessor.c",
+                "entity.name.other.preprocessor.macro.predefined.NDEBUG.cpp",
+                "entity.name.other.preprocessor.macro.predefined.NDEBUG.c",
+                "entity.name.other.preprocessor.macro.predefined._MSC_VER.cpp",
+                "entity.name.other.preprocessor.macro.predefined._MSC_VER.c",
             ],
-            "settings": { "fontStyle": "italic", "foreground": "#6A9955" }
+            "settings": { "foreground": "#d3869b" }
+        },
+        {
+            "name": "Preprocessor - Macro Parameters (reset brackets to neutral)",
+            "scope": [
+                "punctuation.definition.parameters.preprocessor.cpp",
+                "punctuation.definition.parameters.preprocessor.c",
+                "variable.parameter.preprocessor.cpp",
+                "variable.parameter.preprocessor.c"
+            ],
+            "settings": { "foreground": "#B2B2B2" }
+        },
+        {
+            "name": "Preprocessor - #include Path",
+            "scope": [
+                "string.quoted.other.lt-gt.include.cpp",
+                "string.quoted.other.lt-gt.include.c",
+                "string.quoted.double.include.cpp",
+                "string.quoted.double.include.c"
+            ],
+            "settings": { "foreground": "#c1b6a3" }
+        },
+        {
+            "name": "Preprocessor - Predefined Macros (__FILE__ __LINE__ __DATE__ etc.)",
+            "scope": [
+                "keyword.other.unit.cpp",
+                "keyword.other.unit.c",
+                "support.constant.cpp"
+            ],
+            "settings": { "fontStyle": "italic", "foreground": "#d3869b" }
+        },
+        {
+            "name": "Preprocessor - C# Region Name",
+            "scope": [
+                "meta.preprocessor.region.cs string"
+            ],
+            "settings": { "fontStyle": "italic", "foreground": "#A89984" }
         },
 
-        //  KEYWORDS — CONTROL FLOW
+        // == KEYWORDS = CONTROL FLOW
+        // #e0aad6  = if / else / for / while / return / switch / try / catch (C++, C, C#, Python)
+        // #F44747  = Lua control (if/then/elseif/else/end/for/while/do/repeat/until/return/break/goto)
         {
-            "name": "Keyword - Control Flow (General)",
+            "name": "Keyword - Control Flow (C++, C, C#, Python)",
             "scope": [
-                "keyword.control"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - Control Flow C++ (if/else/for/while/return/break/continue/switch/case/goto/throw/try/catch)",
-            "scope": [
+                "keyword.control",
                 "keyword.control.cpp",
-                "keyword.control.c"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - Control Flow C# (if/else/for/foreach/while/do/return/break/continue/switch/case/goto/throw/try/catch/finally/yield/await)",
-            "scope": [
+                "keyword.control.c",
                 "keyword.control.cs",
-                "keyword.control.flow.cs"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - Control Flow Python (if/elif/else/for/while/with/return/break/continue/pass/raise/try/except/finally/yield/async/await)",
-            "scope": [
+                "keyword.control.flow.cs",
                 "keyword.control.flow.python",
                 "keyword.control.python"
             ],
-            "settings": { "foreground": "#F44747" }
+            "settings": { "foreground": "#e0aad6" }
         },
         {
-            "name": "Keyword - Control Flow Lua (if/then/elseif/else/end/for/while/do/repeat/until/return/break/goto)",
+            "name": "Keyword - Control Flow Lua (red, matches keyword color)",
             "scope": [
                 "keyword.control.lua"
             ],
             "settings": { "foreground": "#F44747" }
         },
 
-        //  KEYWORDS — DECLARATION / STORAGE
+        // == KEYWORDS = STORAGE / TYPE DECLARATION
+        // #F44747  = class struct enum typedef using namespace auto template =
         {
-            "name": "Keyword - Storage / Type Declaration (General)",
+            "name": "Keyword - Storage & Type Declaration",
             "scope": [
+                "storage.modifier",
                 "storage.type",
-                "storage.modifier"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - C++ Type Declaration (class/struct/enum/union/template/typedef/using/namespace/auto/decltype)",
-            "scope": [
                 "storage.type.cpp",
                 "storage.type.c",
-                "keyword.other.using.cpp",
-                "keyword.other.namespace.cpp",
-                "keyword.other.typedef.cpp"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - C++ Access Specifiers (public/private/protected)",
-            "scope": [
-                "storage.modifier.specifier.access.control.cpp",
-                "keyword.control.access.cpp"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - C++ Misc (virtual/override/final/explicit/inline/static/constexpr/const/volatile/mutable/friend/extern/register)",
-            "scope": [
                 "storage.modifier.cpp",
                 "storage.modifier.c",
-                "keyword.other.cpp"
+                "keyword.other.using.cpp",
+                "keyword.other.namespace.cpp",
+                "keyword.other.typedef.cpp",
+                "keyword.other.cpp",
+                "storage.modifier.specifier.access.control.cpp",
+                "keyword.control.access.cpp",
+                "storage.type.function.python",
+                "storage.type.class.python",
+                "keyword.other.python",
+                "storage.type.function.lua",
+                "support.type.property.cmake",
+                "support.function.commandProperty.cmake"
             ],
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Keyword - C# Type Declaration (class/struct/enum/interface/delegate/record)",
+            "name": "Keyword - C# Storage & Modifiers",
             "scope": [
-                "storage.type.cs",
+                "storage.modifier.cs",
                 "keyword.other.class.cs",
                 "keyword.other.new.cs"
             ],
-            "settings": { "foreground": "#569CD6" }
-        },
-        {
-            "name": "Keyword - C# Modifiers (public/private/protected/internal/static/readonly/sealed/abstract/override/virtual/partial/async/extern/unsafe/volatile)",
-            "scope": [
-                "storage.modifier.cs"
-            ],
             "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - Python Class/Function Declaration (class/def/lambda/async def)",
-            "scope": [
-                "storage.type.function.python",
-                "storage.type.class.python",
-                "keyword.other.python"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - Lua Function Declaration (function/local function/method)",
-            "scope": [
-                "keyword.control.lua storage.type.function.lua",
-                "storage.type.function.lua"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - CMake Property",
-            "scope": [
-                "support.type.property.cmake",
-                "support.function.commandProperty.cmake",
-            ],
-            "settings": {
-                "foreground": "#F44747",
-            }
         },
 
-        //  KEYWORDS — MISC / OTHER
+        // == KEYWORDS = IMPORT / MODULE
+        // #C586C0  = import / using / from / as / namespace (the keyword, not the name)
         {
-            "name": "Keyword - Import / Include (General)",
+            "name": "Keyword - Import / Module",
             "scope": [
                 "keyword.control.import",
                 "keyword.control.from",
-                "keyword.other.import"
-            ],
-            "settings": { "foreground": "#C586C0" }
-        },
-        {
-            "name": "Keyword - Python Import (import/from/as)",
-            "scope": [
+                "keyword.other.import",
                 "keyword.control.import.python",
                 "keyword.control.from.python",
-                "keyword.control.as.python"
-            ],
-            "settings": { "foreground": "#C586C0" }
-        },
-        {
-            "name": "Keyword - C# using / namespace",
-            "scope": [
+                "keyword.control.as.python",
                 "keyword.other.using.cs",
-                "keyword.other.namespace.cs"
+                "keyword.other.namespace.cs",
+                "keyword.declaration.function.lambda.python"
             ],
             "settings": { "foreground": "#C586C0" }
         },
+
+        // == KEYWORDS = OPERATORS
+        // new / delete / sizeof / alignof / typeid / cast keywords = #F44747
+        // logical word operators (and/or/not/in) = #D4D4D4 (same as symbol ops)
         {
-            "name": "Keyword - C++ New/Delete",
+            "name": "Keyword - Operator Words (new / delete / sizeof / casts)",
             "scope": [
                 "keyword.operator.new.cpp",
-                "keyword.operator.delete.cpp"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Keyword - C# new/delete/typeof/nameof/sizeof/stackalloc",
-            "scope": [
+                "keyword.operator.delete.cpp",
                 "keyword.operator.new.cs",
                 "keyword.other.typeof.cs",
                 "keyword.other.nameof.cs",
-                "keyword.other.sizeof.cs"
+                "keyword.other.sizeof.cs",
+                "keyword.operator.sizeof.cpp",
+                "keyword.operator.sizeof.c",
+                "keyword.operator.alignof.cpp",
+                "keyword.operator.typeid.cpp",
+                "keyword.operator.cast.static_cast.cpp",
+                "keyword.operator.cast.const_cast.cpp",
+                "keyword.operator.cast.reinterpret_cast.cpp",
+                "keyword.operator.cast.cpp",
+                "keyword.operator.arrow.cs",
+                "keyword.operator.null-coalescing.cs"
             ],
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Keyword - Python Special (in/not/and/or/is/as/del/global/nonlocal/assert/with)",
+            "name": "Keyword - Logical Word Operators (and / or / not / in / is)",
             "scope": [
                 "keyword.operator.logical.python",
                 "keyword.operator.wordlike.python",
                 "keyword.control.with.python",
                 "keyword.control.global.python",
-                "keyword.control.nonlocal.python"
-            ],
-            "settings": { "foreground": "#C586C0" }
-        },
-        {
-            "name": "Keyword - Lua Special (and/or/not/in/local)",
-            "scope": [
+                "keyword.control.nonlocal.python",
                 "keyword.operator.lua",
                 "keyword.operator.logical.lua",
                 "keyword.other.lua"
@@ -297,194 +323,89 @@
             "settings": { "foreground": "#F44747" }
         },
 
-        //  PREPROCESSOR DIRECTIVES
+        // == ATTRIBUTES / DECORATORS
+        // #c1b6a3 italic  = [[nodiscard]], @decorator, [Attribute]
         {
-            "name": "Preprocessor - C/C++ Directive (#include/#define/#ifdef/#ifndef/#if/#elif/#else/#endif/#pragma/#undef/#error/#line)",
-            "scope": [
-                "meta.preprocessor.cpp",
-                "meta.preprocessor.c",
-                "keyword.control.directive.cpp",
-                "keyword.control.directive.c",
-                "keyword.control.directive.include.cpp",
-                "keyword.control.directive.include.c",
-                "keyword.control.directive.define.cpp",
-                "keyword.control.directive.define.c",
-                "keyword.control.directive.conditional.cpp",
-                "keyword.control.directive.conditional.c",
-                "keyword.control.directive.pragma.cpp",
-                "keyword.control.directive.pragma.c",
-                "keyword.control.directive.undef.cpp",
-                "keyword.control.directive.line.cpp",
-                "keyword.control.directive.error.cpp",
-                "punctuation.definition.directive.cpp",
-                "punctuation.definition.directive.c"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Preprocessor - C/C++ #include Path (< > and \" \")",
-            "scope": [
-                "string.quoted.other.lt-gt.include.cpp",
-                "string.quoted.other.lt-gt.include.c",
-                "string.quoted.double.include.cpp",
-                "string.quoted.double.include.c"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "Preprocessor - C/C++ Macro Name (defined symbol after #define)",
-            "scope": [
-                "entity.name.function.preprocessor.cpp",
-                "entity.name.function.preprocessor.c"
-            ],
-            "settings": { "foreground": "#bd63c5" }
-        },
-        {
-            "name": "Preprocessor - C# Directive (#if/#else/#endif/#define/#undef/#region/#endregion/#warning/#error/#nullable/#pragma)",
-            "scope": [
-                "meta.preprocessor.cs",
-                "keyword.preprocessor.cs",
-                "keyword.control.directive.cs"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Preprocessor - C# Region Name",
-            "scope": [
-                "meta.preprocessor.region.cs string"
-            ],
-            "settings": { "foreground": "#A8A8A8", "fontStyle": "italic" }
-        },
-
-        //  MACROS
-        {
-            "name": "Macro - C/C++ Macro Usage (ALL_CAPS convention, invocation)",
-            "scope": [
-                "entity.name.other.preprocessor.macro.predefined.cpp",
-                "entity.name.other.preprocessor.macro.predefined.c",
-                "meta.preprocessor.macro.cpp",
-                "meta.preprocessor.macro.c"
-            ],
-            "settings": { "foreground": "#bd63c5" }
-        },
-        {
-            "name": "Macro - C/C++ Predefined Macros (__FILE__/__LINE__/__DATE__/__TIME__/__FUNCTION__ etc.)",
-            "scope": [
-                "keyword.other.unit.cpp",
-                "keyword.other.unit.c",
-                "support.constant.cpp"
-            ],
-            "settings": { "foreground": "#bd63c5", "fontStyle": "italic" }
-        },
-
-        //  ATTRIBUTES / DECORATORS / ANNOTATIONS
-        {
-            "name": "Attribute - C# [Attribute] decoration",
+            "name": "Attribute / Decorator / Annotation",
             "scope": [
                 "support.class.attribute.cs",
                 "entity.name.type.attribute.cs",
                 "punctuation.definition.attribute.begin.cs",
                 "punctuation.definition.attribute.end.cs",
-                "meta.attribute.cs"
-            ],
-            "settings": { "foreground": "#D7BA7D", "fontStyle": "italic" }
-        },
-        {
-            "name": "Attribute - C++ [[nodiscard]], [[deprecated]], [[maybe_unused]] etc.",
-            "scope": [
+                "meta.attribute.cs",
                 "support.other.attribute.cpp",
                 "meta.attribute.cpp",
                 "punctuation.section.attribute.begin.cpp",
-                "punctuation.section.attribute.end.cpp"
-            ],
-            "settings": { "foreground": "#D7BA7D" }
-        },
-        {
-            "name": "Decorator - Python @decorator",
-            "scope": [
+                "punctuation.section.attribute.end.cpp",
                 "entity.name.function.decorator.python",
                 "meta.function.decorator.python",
                 "punctuation.definition.decorator.python"
             ],
-            "settings": { "foreground": "#D7BA7D", "fontStyle": "italic" }
+            "settings": { "fontStyle": "italic", "foreground": "#c1b6a3" }
         },
 
-        //  NAMESPACE
+        // == NAMESPACE        // #dfd9c2  = namespace / module names (the name token, not keyword)
+        // #B2B2B2  = :: scope resolution operator
         {
-            "name": "Namespace - General",
+            "name": "Namespace - Name",
             "scope": [
                 "entity.name.namespace",
                 "entity.name.namespace.cpp",
-                "entity.name.namespace.cs"
+                "meta.namespace.definition.cpp entity.name.namespace",
+                "entity.name.namespace.cs",
+                "entity.name.type.namespace.cs",
+                "entity.name.namespace.wildcard.python",
+                "support.other.module.python",
+                "meta.import.python entity.name.namespace.python",
+                "support.other.namespace.use.php",
+                "support.other.namespace.php"
             ],
-            "settings": { "foreground": "#cbffb4" }
+            "settings": { "foreground": "#dfd9c2" }
         },
         {
-            "name": "Namespace - C++ namespace keyword + name",
-            "scope": [
-                "entity.name.namespace.cpp",
-                "meta.namespace.definition.cpp entity.name.namespace"
-            ],
-            "settings": { "foreground": "#cbffb4" }
-        },
-        {
-            "name": "Namespace - C++ Scope Resolution Operator (::)",
+            "name": "Namespace - Scope Resolution Operator (::)",
             "scope": [
                 "punctuation.separator.namespace.access.cpp",
                 "meta.scope.resolution.cpp"
             ],
             "settings": { "foreground": "#B2B2B2" }
         },
-        {
-            "name": "Namespace - C# namespace declaration name",
-            "scope": [
-                "entity.name.namespace.cs",
-                "entity.name.type.namespace.cs"
-            ],
-            "settings": { "foreground": "#cbffb4" }
-        },
-        {
-            "name": "Namespace - Python Module (import/from target)",
-            "scope": [
-                "entity.name.namespace.wildcard.python",
-                "support.other.module.python",
-                "meta.import.python entity.name.namespace.python"
-            ],
-            "settings": { "foreground": "#cbffb4" }
-        },
-        {
-            "name": "Namespace - PHP / generic",
-            "scope": [
-                "namespace",
-                "support.other.namespace.use.php",
-                "support.other.namespace.php"
-            ],
-            "settings": { "foreground": "#cbffb4" }
-        },
 
-        //  CLASS
+        // == CLASS / TYPE NAMES 
+        // #ffd700  = class / struct / enum name at declaration
+        // #4EC9B0  = type used (reference), interface names, STL types
         {
-            "name": "Class - Name Declaration (General)",
+            "name": "Class - Name at Declaration",
             "scope": [
+                "entity.name.type",
                 "entity.name.type.class",
-                "entity.name.type"
-            ],
-            "settings": { "foreground": "#ffd700" }
-        },
-        {
-            "name": "Class - C++ Class/Struct/Union/Enum Name",
-            "scope": [
                 "entity.name.type.class.cpp",
                 "entity.name.type.struct.cpp",
                 "entity.name.type.union.cpp",
                 "entity.name.type.enum.cpp",
                 "meta.class.cpp entity.name.type",
-                "meta.struct.cpp entity.name.type"
+                "meta.struct.cpp entity.name.type",
+                "entity.name.type.class.cs",
+                "entity.name.type.struct.cs",
+                "entity.name.type.enum.cs",
+                "entity.name.type.delegate.cs",
+                "entity.name.type.record.cs",
+                "entity.name.type.class.python",
+                "meta.class.python entity.name.type",
+                "entity.name.type.class.lua"
             ],
             "settings": { "foreground": "#ffd700" }
         },
         {
-            "name": "Class - C++ Template Class/Type Parameter",
+            "name": "Class - Inherited Base Class",
+            "scope": [
+                "entity.other.inherited-class.cpp",
+                "entity.other.inherited-class.python"
+            ],
+            "settings": { "fontStyle": "italic", "foreground": "#ffd700" }
+        },
+        {
+            "name": "Class - Template Type Parameter (typename T)",
             "scope": [
                 "entity.name.type.template.cpp",
                 "storage.type.template.argument.typename.cpp"
@@ -492,538 +413,26 @@
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Class - C++ Inheritance / Base Class",
+            "name": "Type - Used / Referenced (STL, support types, interfaces)",
             "scope": [
-                "entity.other.inherited-class.cpp"
-            ],
-            "settings": { "foreground": "#ffd700", "fontStyle": "italic" }
-        },
-        {
-            "name": "Class - C# Class/Struct/Record/Interface/Enum/Delegate Name",
-            "scope": [
-                "entity.name.type.class.cs",
-                "entity.name.type.struct.cs",
-                "entity.name.type.interface.cs",
-                "entity.name.type.enum.cs",
-                "entity.name.type.delegate.cs",
-                "entity.name.type.record.cs"
-            ],
-            "settings": { "foreground": "#ffd700" }
-        },
-        {
-            "name": "Class - C# Interface Name (starts with I convention)",
-            "scope": [
-                "entity.name.type.interface.cs"
-            ],
-            "settings": { "foreground": "#4EC9B0" }
-        },
-        {
-            "name": "Class - C# Type Used (referenced in code)",
-            "scope": [
+                "support.class.std.cpp",
                 "support.class.cs",
-                "support.type.cs"
+                "support.type.cs",
+                "entity.name.type.interface.cs",
+                "entity.name.type.type-parameter.cs",
+                "support.type.python",
+                "support.class.python",
+                "support.type.lua",
+                "support.class",
+                "support.type.sys-types"
             ],
             "settings": { "foreground": "#4EC9B0" }
         },
-        {
-            "name": "Class - Python Class Name",
-            "scope": [
-                "entity.name.type.class.python",
-                "meta.class.python entity.name.type"
-            ],
-            "settings": { "foreground": "#ffd700" }
-        },
-        {
-            "name": "Class - Python Base Class (inheritance)",
-            "scope": [
-                "entity.other.inherited-class.python"
-            ],
-            "settings": { "foreground": "#4EC9B0", "fontStyle": "italic" }
-        },
-        {
-            "name": "Class - Lua (no native class; metatable name placeholders)",
-            "scope": [
-                "entity.name.type.class.lua"
-            ],
-            "settings": { "foreground": "#ffd700" }
-        },
 
-        //  FUNCTIONS / METHODS
+        // == TYPES = PRIMITIVES 
+        // #F44747  = int float double char bool void auto =
         {
-            "name": "Function - Declaration Name (General)",
-            "scope": [
-                "entity.name.function"
-            ],
-            "settings": { "foreground": "#f09132" }
-        },
-        {
-            "name": "Function - C++ Free Function Declaration",
-            "scope": [
-                "entity.name.function.cpp",
-                "entity.name.function.c"
-            ],
-            "settings": { "foreground": "#f09132" }
-        },
-        {
-            "name": "Function - C++ Member / Method Declaration",
-            "scope": [
-                "entity.name.function.member.cpp",
-                "meta.function.definition.cpp entity.name.function"
-            ],
-            "settings": { "foreground": "#f09132" }
-        },
-        {
-            "name": "Function - C++ Constructor / Destructor",
-            "scope": [
-                "entity.name.function.destructor.cpp",
-                "entity.name.function.constructor.cpp"
-            ],
-            "settings": { "foreground": "#ffd700" }
-        },
-        {
-            "name": "Function - C++ Operator Overload",
-            "scope": [
-                "entity.name.function.operator.cpp"
-            ],
-            "settings": { "foreground": "#f09132", "fontStyle": "italic" }
-        },
-        {
-            "name": "Function - C++ Call (invocation)",
-            "scope": [
-                "meta.function-call.cpp",
-                "meta.function-call.c"
-            ],
-            "settings": { "foreground": "#DCDCAA" }
-        },
-        {
-            "name": "Function - C# Method Declaration",
-            "scope": [
-                "entity.name.function.cs"
-            ],
-            "settings": { "foreground": "#DCDCAA" }
-        },
-        {
-            "name": "Function - C# Constructor",
-            "scope": [
-                "entity.name.function.constructor.cs"
-            ],
-            "settings": { "foreground": "#ffd700" }
-        },
-        {
-            "name": "Function - C# Method Call",
-            "scope": [
-                "meta.method-call.cs",
-                "meta.function-call.cs"
-            ],
-            "settings": { "foreground": "#DCDCAA" }
-        },
-        {
-            "name": "Function - Python Function/Method Declaration (def)",
-            "scope": [
-                "entity.name.function.python",
-                "meta.function.python entity.name.function"
-            ],
-            "settings": { "foreground": "#DCDCAA" }
-        },
-        {
-            "name": "Function - Python Magic Methods (__init__/__str__/__repr__ etc.)",
-            "scope": [
-                "support.function.magic.python",
-                "entity.name.function.magic.python"
-            ],
-            "settings": { "foreground": "#C586C0" }
-        },
-        {
-            "name": "Function - Python Built-in Functions (print/len/range/type/etc.)",
-            "scope": [
-                "support.function.builtin.python",
-                "meta.function-call.python support.function.builtin"
-            ],
-            "settings": { "foreground": "#4EC9B0" }
-        },
-        {
-            "name": "Function - Python Call (invocation)",
-            "scope": [
-                "meta.function-call.python entity.name.function.python"
-            ],
-            "settings": { "foreground": "#DCDCAA" }
-        },
-        {
-            "name": "Function - Lua Function Declaration Name",
-            "scope": [
-                "entity.name.function.lua"
-            ],
-            "settings": { "foreground": "#f09132" }
-        },
-        {
-            "name": "Function - Lua Method Declaration (obj:method())",
-            "scope": [
-                "entity.name.function.method.lua"
-            ],
-            "settings": { "foreground": "#f09132" }
-        },
-        {
-            "name": "Function - Lua Built-in (print/pairs/ipairs/tostring/tonumber/pcall/xpcall/require/etc.)",
-            "scope": [
-                "support.function.lua"
-            ],
-            "settings": { "foreground": "#cbffb4" }
-        },
-        {
-            "name": "Function - CMake",
-            "scope": [
-                "support.function.cmake",
-
-            ],
-            "settings": {
-                "foreground": "#f09132",
-            }
-        },
-        {
-            "name": "Function - General Support / Library",
-            "scope": [
-                "support.function",
-                "variable.function"
-            ],
-            "settings": { "foreground": "#f09132" }
-        },
-
-        //  PARAMETERS / FUNCTION ARGUMENTS
-        {
-            "name": "Parameter - General",
-            "scope": [
-                "variable.parameter"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Parameter - C++ Function Parameter",
-            "scope": [
-                "variable.parameter.cpp",
-                "variable.parameter.c"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Parameter - C# Method Parameter",
-            "scope": [
-                "variable.parameter.cs"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Parameter - Python Function Parameter (positional)",
-            "scope": [
-                "variable.parameter.python",
-                "meta.function.parameters.python variable.parameter"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Parameter - Python self / cls",
-            "scope": [
-                "variable.parameter.function.language.special.self.python",
-                "variable.parameter.function.language.special.cls.python"
-            ],
-            "settings": { "foreground": "#D16969", "fontStyle": "italic" }
-        },
-        {
-            "name": "Parameter - Python *args / **kwargs",
-            "scope": [
-                "variable.parameter.args.python",
-                "variable.parameter.kwargs.python"
-            ],
-            "settings": { "foreground": "#9CDCFE", "fontStyle": "italic" }
-        },
-        {
-            "name": "Parameter - Lua Function Parameter",
-            "scope": [
-                "variable.parameter.lua"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-
-        //  VARIABLES
-        {
-            "name": "Variable - General / Fallback",
-            "scope": [
-                "variable",
-                "variable.other"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Variable - C++ Local Variable",
-            "scope": [
-                "variable.other.local.cpp",
-                "variable.other.cpp",
-                "variable.other.c"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Variable - C++ Member Variable / Field (this->field)",
-            "scope": [
-                "variable.other.member.cpp",
-                "variable.other.field.cpp"
-            ],
-            "settings": { "foreground": "#DCDCAA" }
-        },
-        {
-            "name": "Variable - C++ Static Member",
-            "scope": [
-                "variable.other.static.cpp"
-            ],
-            "settings": { "foreground": "#DCDCAA", "fontStyle": "italic" }
-        },
-        {
-            "name": "Variable - C++ this pointer",
-            "scope": [
-                "variable.language.this.cpp",
-                "variable.language.self.cpp"
-            ],
-            "settings": { "foreground": "#F44747", "fontStyle": "italic" }
-        },
-        {
-            "name": "Variable - C# Local Variable",
-            "scope": [
-                "variable.other.cs",
-                "variable.other.local.cs"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Variable - C# Field / Property",
-            "scope": [
-                "variable.other.member.cs",
-                "entity.name.variable.field.cs",
-                "entity.name.variable.property.cs"
-            ],
-            "settings": { "foreground": "#83A598" }
-        },
-        {
-            "name": "Variable - C# this",
-            "scope": [
-                "variable.language.this.cs"
-            ],
-            "settings": { "foreground": "#D16969", "fontStyle": "italic" }
-        },
-        {
-            "name": "Variable - Python Local Variable",
-            "scope": [
-                "variable.other.python"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Variable - Python Instance / Class Field (self.x / cls.x)",
-            "scope": [
-                "variable.other.field.python",
-                "meta.attribute.python variable.other"
-            ],
-            "settings": { "foreground": "#83A598" }
-        },
-        {
-            "name": "Variable - Python self / cls reference",
-            "scope": [
-                "variable.language.special.self.python",
-                "variable.language.special.cls.python"
-            ],
-            "settings": { "foreground": "#D16969", "fontStyle": "italic" }
-        },
-        {
-            "name": "Variable - Lua Local Variable (local x)",
-            "scope": [
-                "variable.other.local.lua",
-                "storage.modifier.local.lua"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Variable - Lua Global Variable (non-local)",
-            "scope": [
-                "variable.other.global.lua",
-                "variable.global.lua"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "Variable - Lua self",
-            "scope": [
-                "variable.language.self.lua"
-            ],
-            "settings": { "foreground": "#D16969", "fontStyle": "italic" }
-        },
-        {
-            "name": "Variable - CMake",
-            "scope": [
-                "support.type.variable.cmake"
-            ],
-            "settings": { "foreground": "#9CDCFE", "fontStyle": "italic" }
-        },
-        {
-            "name": "Variable - Block-level (meta.block scope)",
-            "scope": [
-                "meta.block variable.other"
-            ],
-            "settings": { "foreground": "#83A598" }
-        },
-        {
-            "name": "Variable - Language (this/self/super)",
-            "scope": [
-                "variable.language"
-            ],
-            "settings": { "fontStyle": "italic", "foreground": "#D16969" }
-        },
-
-        //  CONSTANTS
-        {
-            "name": "Constant - Numeric (General)",
-            "scope": [
-                "constant.numeric"
-            ],
-            "settings": { "foreground": "#B5CEA8" }
-        },
-		{
-			"name": "Constant - Numeric Suffix",
-			"scope": [
-				"keyword.other.unit.suffix",
-				"keyword.other.suffix",
-			],
-			"settings": {
-				"foreground": "#B5CEA8",
-			}
-		},
-        {
-            "name": "Constant - C++ Numeric (int/float/double/hex/octal/binary literals)",
-            "scope": [
-                "constant.numeric.cpp",
-                "constant.numeric.c",
-                "constant.numeric.integer.cpp",
-                "constant.numeric.floating-point.cpp",
-                "constant.numeric.hex.cpp"
-            ],
-            "settings": { "foreground": "#B5CEA8" }
-        },
-        {
-            "name": "Constant - C# Numeric",
-            "scope": [
-                "constant.numeric.cs",
-                "constant.numeric.integer.cs",
-                "constant.numeric.float.cs",
-                "constant.numeric.hex.cs"
-            ],
-            "settings": { "foreground": "#B5CEA8" }
-        },
-        {
-            "name": "Constant - Python Numeric (int/float/complex/binary/hex/octal)",
-            "scope": [
-                "constant.numeric.python",
-                "constant.numeric.integer.python",
-                "constant.numeric.float.python",
-                "constant.numeric.complex.python",
-                "constant.numeric.bin.python",
-                "constant.numeric.hex.python",
-                "constant.numeric.oct.python"
-            ],
-            "settings": { "foreground": "#B5CEA8" }
-        },
-        {
-            "name": "Constant - Lua Numeric",
-            "scope": [
-                "constant.numeric.lua",
-                "constant.numeric.float.lua",
-                "constant.numeric.integer.lua",
-                "constant.numeric.hex.lua"
-            ],
-            "settings": { "foreground": "#B5CEA8" }
-        },
-        {
-            "name": "Constant - Language True/False/None/Null/nullptr",
-            "scope": [
-                "constant.language"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Constant - C++ nullptr/true/false/NULL",
-            "scope": [
-                "constant.language.nullptr.cpp",
-                "constant.language.boolean.true.cpp",
-                "constant.language.boolean.false.cpp",
-                "constant.language.null.c"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Constant - C# true/false/null/default",
-            "scope": [
-                "constant.language.boolean.true.cs",
-                "constant.language.boolean.false.cs",
-                "constant.language.null.cs",
-                "constant.language.default.cs"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Constant - Python True/False/None/Ellipsis",
-            "scope": [
-                "constant.language.python",
-                "constant.builtin.python"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Constant - Lua true/false/nil",
-            "scope": [
-                "constant.language.lua",
-                "constant.language.boolean.lua",
-                "constant.language.nil.lua"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Constant - User-defined (const/constexpr/readonly named constants)",
-            "scope": [
-                "variable.other.constant",
-                "entity.name.variable.const"
-            ],
-            "settings": { "foreground": "#4FC1FF" }
-        },
-        {
-            "name": "Constant - C++ Enum Value",
-            "scope": [
-                "variable.other.enummember.cpp",
-                "entity.name.variable.enumerator.cpp"
-            ],
-            "settings": { "foreground": "#4FC1FF" }
-        },
-        {
-            "name": "Constant - C# Enum Member",
-            "scope": [
-                "entity.name.variable.enum-member.cs"
-            ],
-            "settings": { "foreground": "#4FC1FF" }
-        },
-        {
-            "name": "Constant - Character Escape (\\n, \\t, \\\\, etc.)",
-            "scope": [
-                "constant.character.escape"
-            ],
-            "settings": { "foreground": "#D7BA7D" }
-        },
-
-        //  TYPES (PRIMITIVE & BUILT-IN)
-        {
-            "name": "Type - Primitive / Built-in (General)",
-            "scope": [
-                "support.type",
-                "storage.type.built-in"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Type - C++ Primitive (int/float/double/char/bool/void/long/short/unsigned/signed/size_t/wchar_t/auto)",
+            "name": "Type - Primitive / Built-in",
             "scope": [
                 "storage.type.primitive.cpp",
                 "storage.type.primitive.c",
@@ -1032,139 +441,306 @@
                 "storage.type.void.cpp",
                 "storage.type.auto.cpp",
                 "storage.type.built-in.cpp",
-                "storage.type.built-in.c"
+                "storage.type.built-in.c",
+                "storage.type.built-in",
+                "keyword.type.cs",
+                "storage.type.primitive.cs"
+            ],
+            "settings": { "foreground": "#F44747" }
+        },
+
+        // == FUNCTIONS        // #f09132  = function / method name at declaration site
+        // #DCDCAA  = function / method call (invocation)
+        // #cbffb4  = built-in library functions
+        {
+            "name": "Function - Declaration",
+            "scope": [
+                "entity.name.function",
+                "entity.name.function.cpp",
+                "entity.name.function.c",
+                "entity.name.function.member.cpp",
+                "meta.function.definition.cpp entity.name.function",
+                "entity.name.function.destructor.cpp",
+                "entity.name.function.constructor.cpp",
+                "entity.name.function.operator.cpp",
+                "entity.name.function.cs",
+                "entity.name.function.constructor.cs",
+                "entity.name.function.python",
+                "meta.function.python entity.name.function",
+                "support.function.magic.python",
+                "entity.name.function.magic.python",
+                "entity.name.function.lua",
+                "entity.name.function.method.lua"
+            ],
+            "settings": { "foreground": "#f09132" }
+        },
+        {
+            "name": "Function - Call (invocation)",
+            "scope": [
+                "meta.function-call.cpp",
+                "meta.function-call.c",
+                "meta.method-call.cs",
+                "meta.function-call.cs",
+                "meta.function-call.python entity.name.function.python"
+            ],
+            "settings": { "foreground": "#DCDCAA" }
+        },
+        {
+            "name": "Function - Built-in Library",
+            "scope": [
+                "support.function.builtin.python",
+                "meta.function-call.python support.function.builtin",
+                "support.function.lua",
+                "support.function.cmake",
+                "support.function"
+            ],
+            "settings": { "foreground": "#f09132" }
+        },
+
+        // == PARAMETERS
+        // #9CDCFE  = all function parameters
+        // #D16969 italic  = self / cls / this
+        {
+            "name": "Parameter",
+            "scope": [
+                "variable.parameter",
+                "variable.parameter.cpp",
+                "variable.parameter.c",
+                "variable.parameter.cs",
+                "variable.parameter.python",
+                "meta.function.parameters.python variable.parameter",
+                "variable.parameter.args.python",
+                "variable.parameter.kwargs.python",
+                "variable.parameter.lua"
+            ],
+            "settings": { "foreground": "#9CDCFE" }
+        },
+        {
+            "name": "Parameter - self / cls (Python), *args / **kwargs (italic)",
+            "scope": [
+                "variable.parameter.function.language.special.self.python",
+                "variable.parameter.function.language.special.cls.python"
+            ],
+            "settings": { "fontStyle": "italic", "foreground": "#D16969" }
+        },
+        {
+            "name": "Parameter - *args / **kwargs (italic)",
+            "scope": [
+                "variable.parameter.args.python",
+                "variable.parameter.kwargs.python"
+            ],
+            "settings": { "fontStyle": "italic", "foreground": "#9CDCFE" }
+        },
+
+        // == VARIABLES        // #9CDCFE  = local variables
+        // #DCDCAA  = member / field variables (this->x, self.x)
+        // #D16969 italic  = this / self / cls language keyword
+        {
+            "name": "Variable - Local",
+            "scope": [
+                "variable",
+                "variable.other",
+                "variable.other.local.cpp",
+                "variable.other.cpp",
+                "variable.other.c",
+                "variable.other.cs",
+                "variable.other.local.cs",
+                "variable.other.python",
+                "variable.other.local.lua",
+                "variable.other.global.lua",
+                "variable.function",
+                "meta.block variable.other",
+                "support.other.variable",
+                "support.type.variable.cmake"
+            ],
+            "settings": { "foreground": "#9CDCFE" }
+        },
+        {
+            "name": "Variable - Member / Field",
+            "scope": [
+                "variable.other.member.cpp",
+                "variable.other.field.cpp",
+                "variable.other.member.cs",
+                "entity.name.variable.field.cs",
+                "entity.name.variable.property.cs",
+                "variable.other.field.python",
+                "meta.attribute.python variable.other"
+            ],
+            "settings": { "foreground": "#DCDCAA" }
+        },
+        {
+            "name": "Variable - Static Member (italic)",
+            "scope": [
+                "variable.other.static.cpp"
+            ],
+            "settings": { "fontStyle": "italic", "foreground": "#DCDCAA" }
+        },
+        {
+            "name": "Variable - this / self / cls",
+            "scope": [
+                "variable.language",
+                "variable.language.this.cpp",
+                "variable.language.self.cpp",
+                "variable.language.this.cs",
+                "variable.language.special.self.python",
+                "variable.language.special.cls.python",
+                "variable.language.self.lua"
+            ],
+            "settings": { "fontStyle": "italic", "foreground": "#D16969" }
+        },
+
+        // == CONSTANTS        // #d3869b  = numeric literals (digits + prefixes + suffixes, all bases)
+        // #F44747  = language constants (true/false/null/nullptr/nil)
+        // #4FC1FF  = user-defined named constants (constexpr, const, readonly)
+        // #b8d7a3  = enum member values
+        // #D7BA7D  = escape sequences & format placeholders
+        {
+            "name": "Constant - Numeric Literals (digits, all bases)",
+            "scope": [
+                // Generic fallback
+                "constant.numeric",
+
+                // C++ -- decimal, hex (0x), octal (0), binary (0b), float
+                "constant.numeric.cpp",
+                "constant.numeric.decimal.cpp",
+                "constant.numeric.hex.cpp",
+                "constant.numeric.octal.cpp",
+                "constant.numeric.binary.cpp",
+                "constant.numeric.integer.cpp",
+                "constant.numeric.floating-point.cpp",
+
+                // C -- same set
+                "constant.numeric.c",
+                "constant.numeric.decimal.c",
+                "constant.numeric.hex.c",
+                "constant.numeric.octal.c",
+                "constant.numeric.binary.c",
+                "constant.numeric.floating-point.c",
+
+                // C# -- decimal, hex (0x), binary (0b, C#7+), float
+                "constant.numeric.cs",
+                "constant.numeric.integer.cs",
+                "constant.numeric.float.cs",
+                "constant.numeric.hex.cs",
+                "constant.numeric.binary.cs",
+
+                // Python, Lua (kept for completeness)
+                "constant.numeric.python",
+                "constant.numeric.integer.python",
+                "constant.numeric.float.python",
+                "constant.numeric.complex.python",
+                "constant.numeric.bin.python",
+                "constant.numeric.hex.python",
+                "constant.numeric.oct.python",
+                "constant.numeric.lua",
+                "constant.numeric.float.lua",
+                "constant.numeric.integer.lua",
+                "constant.numeric.hex.lua"
+            ],
+            "settings": { "foreground": "#d3869b" }
+        },
+        {
+            "name": "Constant - Numeric Suffixes & UDL (u/L/f/ULL/0x prefix/etc.)",
+            "scope": [
+                // C++ suffixes per base  (u L f ULL ull etc.)
+                "keyword.other.unit.cpp",
+                "keyword.other.unit.decimal.cpp",
+                "keyword.other.unit.hexadecimal.cpp",
+                "keyword.other.unit.octal.cpp",
+                "keyword.other.unit.binary.cpp",
+                "keyword.other.unit.float.cpp",
+                "keyword.other.unit.user-defined.cpp",
+
+                // C suffixes
+                "keyword.other.unit.c",
+                "keyword.other.unit.decimal.c",
+                "keyword.other.unit.hexadecimal.c",
+                "keyword.other.unit.octal.c",
+                "keyword.other.unit.binary.c",
+                "keyword.other.unit.float.c",
+
+                // C# suffixes  (u U l L ul UL f F d D m M)
+                "keyword.other.unit.cs",
+                "keyword.other.unit.decimal.cs",
+                "keyword.other.unit.hexadecimal.cs",
+                "keyword.other.unit.binary.cs",
+
+                // Generic fallbacks used by some grammar versions
+                "keyword.other.unit.suffix",
+                "keyword.other.unit"
+            ],
+            "settings": { "foreground": "#d3869b" }
+        },
+        {
+            "name": "Constant - Language (true / false / null / nullptr / nil / None)",
+            "scope": [
+                "constant.language",
+                "constant.language.nullptr.cpp",
+                "constant.language.boolean.true.cpp",
+                "constant.language.boolean.false.cpp",
+                "constant.language.null.c",
+                "constant.language.boolean.true.cs",
+                "constant.language.boolean.false.cs",
+                "constant.language.null.cs",
+                "constant.language.default.cs",
+                "constant.language.python",
+                "constant.builtin.python",
+                "constant.language.lua",
+                "constant.language.boolean.lua",
+                "constant.language.nil.lua"
             ],
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Type - C++ STL / Standard Library Types (std::vector, std::string, etc.)",
+            "name": "Constant - User-defined Named (const / constexpr / readonly)",
             "scope": [
-                "support.class.std.cpp"
+                "variable.other.constant",
+                "entity.name.variable.const"
             ],
-            "settings": { "foreground": "#4EC9B0" }
+            "settings": { "foreground": "#4FC1FF" }
         },
         {
-            "name": "Type - C# Primitive (int/float/double/char/bool/void/string/object/decimal/byte/short/long/uint/var)",
+            "name": "Constant - Enum Member Value",
             "scope": [
-                "storage.type.cs",
-                "keyword.type.cs",
-                "storage.type.primitive.cs"
+                "variable.other.enummember.cpp",
+                "entity.name.variable.enumerator.cpp",
+                "entity.name.variable.enum-member.cs"
             ],
-            "settings": { "foreground": "#4EC9B0" }
+            "settings": { "foreground": "#b8d7a3" }
         },
         {
-            "name": "Type - Python Built-in Types (int/float/str/bool/bytes/list/dict/tuple/set/None)",
+            "name": "Constant - Escape Sequence & Format Placeholder",
             "scope": [
-                "support.type.python",
-                "support.class.python"
+                "constant.character.escape",
+                "constant.other.placeholder",
+                "string constant.other.placeholder",
+                "constant.character.format.placeholder.other.python"
             ],
-            "settings": { "foreground": "#4EC9B0" }
-        },
-        {
-            "name": "Type - Lua Base Types (string/number/boolean/table/function/nil/thread/userdata)",
-            "scope": [
-                "support.type.lua"
-            ],
-            "settings": { "foreground": "#4EC9B0" }
+            "settings": { "foreground": "#D7BA7D" }
         },
 
-        //  OPERATORS
+        // == OPERATORS        // #D4D4D4  = arithmetic / assignment / comparison / logical / bitwise / ternary
+        // #B2B2B2  = pointer / member access / dereference / address-of (quieter)
         {
-            "name": "Operator - Arithmetic (+, -, *, /, %, **)",
+            "name": "Operator - Arithmetic, Assignment, Comparison, Logical, Bitwise",
             "scope": [
-                "keyword.operator.arithmetic"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C++ Arithmetic",
-            "scope": [
+                "keyword.operator",
+                "keyword.operator.arithmetic",
                 "keyword.operator.arithmetic.cpp",
-                "keyword.operator.arithmetic.c"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C++ Assignment (=, +=, -=, *=, /=, etc.)",
-            "scope": [
+                "keyword.operator.arithmetic.c",
                 "keyword.operator.assignment.cpp",
                 "keyword.operator.assignment.c",
-                "keyword.operator.assignment.augmented.cpp"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C++ Comparison (==, !=, <, >, <=, >=)",
-            "scope": [
+                "keyword.operator.assignment.augmented.cpp",
                 "keyword.operator.comparison.cpp",
-                "keyword.operator.comparison.c"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C++ Logical (&&, ||, !)",
-            "scope": [
+                "keyword.operator.comparison.c",
                 "keyword.operator.logical.cpp",
-                "keyword.operator.logical.c"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C++ Bitwise (&, |, ^, ~, <<, >>)",
-            "scope": [
+                "keyword.operator.logical.c",
                 "keyword.operator.bitwise.cpp",
-                "keyword.operator.bitwise.c"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C++ Increment/Decrement (++/--)",
-            "scope": [
+                "keyword.operator.bitwise.c",
                 "keyword.operator.increment.cpp",
-                "keyword.operator.decrement.cpp"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C++ Pointer / Address (*, &, ->, ::, .*, ->*)",
-            "scope": [
-                "keyword.operator.dereference.cpp",
-                "keyword.operator.address.cpp",
-                "keyword.operator.member-access.cpp",
-                "punctuation.accessor.cpp",
-                "keyword.operator.pointer.cpp",
-                "storage.modifier.reference.cpp",
-                "storage.modifier.pointer.cpp"
-            ],
-            "settings": { "foreground": "#B2B2B2" }
-        },
-        {
-            "name": "Operator - C++ Cast (static_cast/dynamic_cast/reinterpret_cast/const_cast)",
-            "scope": [
-                "keyword.operator.cast.cpp"
-            ],
-            "settings": { "foreground": "#C586C0" }
-        },
-        {
-            "name": "Operator - C++ sizeof / alignof / typeid",
-            "scope": [
-                "keyword.operator.sizeof.cpp",
-                "keyword.operator.alignof.cpp",
-                "keyword.operator.typeid.cpp"
-            ],
-            "settings": { "foreground": "#C586C0" }
-        },
-        {
-            "name": "Operator - C++ Ternary (?:)",
-            "scope": [
+                "keyword.operator.decrement.cpp",
                 "keyword.operator.ternary.cpp",
-                "keyword.operator.conditional.cpp"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C# All Operators",
-            "scope": [
+                "keyword.operator.conditional.cpp",
                 "keyword.operator.cs",
                 "keyword.operator.arithmetic.cs",
                 "keyword.operator.assignment.cs",
@@ -1172,189 +748,82 @@
                 "keyword.operator.comparison.cs",
                 "keyword.operator.logical.cs",
                 "keyword.operator.bitwise.cs",
-                "keyword.operator.null-coalescing.cs",
-                "keyword.operator.ternary.cs"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - C# Accessor (. => ?. ?.[])",
-            "scope": [
-                "punctuation.accessor.cs",
-                "keyword.operator.member-access.cs",
-                "keyword.operator.null-conditional.cs"
-            ],
-            "settings": { "foreground": "#B2B2B2" }
-        },
-        {
-            "name": "Operator - Python Arithmetic",
-            "scope": [
-                "keyword.operator.arithmetic.python"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - Python Assignment (=, +=, :=  walrus, etc.)",
-            "scope": [
+                "keyword.operator.ternary.cs",
+                "keyword.operator.arithmetic.python",
                 "keyword.operator.assignment.python",
-                "keyword.operator.assignment.augmented.python"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - Python Comparison (==, !=, <, >, is, in, not in)",
-            "scope": [
+                "keyword.operator.assignment.augmented.python",
                 "keyword.operator.comparison.python",
-                "keyword.operator.logical.python"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - Python Bitwise",
-            "scope": [
-                "keyword.operator.bitwise.python"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - Lua Arithmetic (+, -, *, /, //, %, ^)",
-            "scope": [
-                "keyword.operator.arithmetic.lua"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - Lua Concatenation (..)",
-            "scope": [
-                "keyword.operator.concatenation.lua"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - Lua Comparison (==, ~=, <, >, <=, >=)",
-            "scope": [
-                "keyword.operator.comparison.lua"
-            ],
-            "settings": { "foreground": "#D4D4D4" }
-        },
-        {
-            "name": "Operator - Lua Length (#)",
-            "scope": [
+                "keyword.operator.bitwise.python",
+                "keyword.operator.arithmetic.lua",
+                "keyword.operator.concatenation.lua",
+                "keyword.operator.comparison.lua",
                 "keyword.operator.length.lua"
             ],
             "settings": { "foreground": "#D4D4D4" }
         },
         {
-            "name": "Operator - General Fallback",
+            "name": "Operator - Pointer / Member Access / Address (quieter)",
             "scope": [
-                "keyword.operator"
+                "keyword.operator.dereference.cpp",
+                "keyword.operator.dereference.c",
+                "keyword.operator.address.cpp",
+                "keyword.operator.address.c",
+                "keyword.operator.member-access.cpp",
+                "keyword.operator.pointer.cpp",
+                "keyword.operator.pointer.c",
+                "punctuation.accessor.cpp",
+                "punctuation.accessor.cs",
+                "keyword.operator.member-access.cs",
+                "keyword.operator.null-conditional.cs",
+                "storage.modifier.reference.cpp",
+                "storage.modifier.pointer.cpp",
+                "storage.modifier.pointer.c"
             ],
-            "settings": { "foreground": "#D4D4D4" }
+            "settings": { "foreground": "#B2B2B2" }
         },
 
-        //  STRINGS
+        // == STRINGS
+        // #c1b6a3  = all string content
+        // #c1b6a3 italic  = docstrings / triple-quoted
         {
-            "name": "String - General",
+            "name": "String",
             "scope": [
-                "string"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - C++ Double-quoted",
-            "scope": [
+                "string",
                 "string.quoted.double.cpp",
-                "string.quoted.double.c"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - C++ Single-quoted / Char",
-            "scope": [
+                "string.quoted.double.c",
                 "string.quoted.single.cpp",
-                "string.quoted.single.c"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - C++ Raw String (R\"(...)\")",
-            "scope": [
-                "string.quoted.raw.cpp"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - C# Double-quoted",
-            "scope": [
-                "string.quoted.double.cs"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - C# Verbatim (@\"...\")",
-            "scope": [
+                "string.quoted.single.c",
+                "string.quoted.raw.cpp",
+                "string.quoted.double.cs",
                 "string.quoted.verbatim.cs",
-                "string.quoted.other.verbatim.cs"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - C# Interpolated ($\"...\") prefix",
-            "scope": [
+                "string.quoted.other.verbatim.cs",
                 "string.quoted.double.interpolated.cs",
-                "punctuation.definition.interpolation.begin.cs",
-                "punctuation.definition.interpolation.end.cs"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - Python Single / Double quoted",
-            "scope": [
                 "string.quoted.single.python",
-                "string.quoted.double.python"
+                "string.quoted.double.python",
+                "string.interpolated.python",
+                "meta.fstring.python",
+                "string.quoted.single.lua",
+                "string.quoted.double.lua",
+                "string.quoted.other.multiline.lua",
+                "string.other.link"
             ],
-            "settings": { "foreground": "#dfd9c2" }
+            "settings": { "foreground": "#c1b6a3" }
         },
         {
-            "name": "String - Python Triple-quoted (docstrings)",
+            "name": "String - Docstring / Triple-quoted (italic)",
             "scope": [
                 "string.quoted.docstring.multi.python",
                 "string.quoted.multi.python"
             ],
-            "settings": { "foreground": "#dfd9c2", "fontStyle": "italic" }
+            "settings": { "fontStyle": "italic", "foreground": "#c1b6a3" }
         },
         {
-            "name": "String - Python f-string prefix",
+            "name": "String - Interpolation Braces",
             "scope": [
-                "string.interpolated.python",
-                "meta.fstring.python",
-                "constant.character.format.placeholder.other.python"
+                "punctuation.definition.interpolation.begin.cs",
+                "punctuation.definition.interpolation.end.cs"
             ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - Lua Single / Double / Long",
-            "scope": [
-                "string.quoted.single.lua",
-                "string.quoted.double.lua",
-                "string.quoted.other.multiline.lua"
-            ],
-            "settings": { "foreground": "#dfd9c2" }
-        },
-        {
-            "name": "String - Escape Sequence",
-            "scope": [
-                "constant.character.escape"
-            ],
-            "settings": { "foreground": "#D7BA7D" }
-        },
-        {
-            "name": "String - Format Placeholder (%d %s {0} etc.)",
-            "scope": [
-                "constant.other.placeholder",
-                "string constant.other.placeholder"
-            ],
-            "settings": { "foreground": "#D7BA7D" }
+            "settings": { "foreground": "#B2B2B2" }
         },
         {
             "name": "String - Regular Expression",
@@ -1364,9 +833,9 @@
             "settings": { "foreground": "#B5CEA8" }
         },
 
-        //  GENERICS / TEMPLATES
+        // == GENERICS / TEMPLATE
         {
-            "name": "Generic - C++ Template Parameter List < >",
+            "name": "Generic - C++ Template Angle Brackets",
             "scope": [
                 "meta.template.cpp",
                 "punctuation.section.angle-brackets.begin.template.cpp",
@@ -1375,13 +844,12 @@
             "settings": { "foreground": "#B2B2B2" }
         },
         {
-            "name": "Generic - C# Generic Type Argument < T >",
+            "name": "Generic - C# Type Parameter < T >",
             "scope": [
                 "punctuation.definition.typeparameters.begin.cs",
-                "punctuation.definition.typeparameters.end.cs",
-                "entity.name.type.type-parameter.cs"
+                "punctuation.definition.typeparameters.end.cs"
             ],
-            "settings": { "foreground": "#4EC9B0" }
+            "settings": { "foreground": "#B2B2B2" }
         },
         {
             "name": "Generic - C# Constraint (where T : ...)",
@@ -1391,7 +859,7 @@
             "settings": { "foreground": "#C586C0" }
         },
         {
-            "name": "Generic - Python Type Hint (x: int, -> None, Optional, List[T])",
+            "name": "Generic - Python Type Hints",
             "scope": [
                 "meta.function.annotation.python",
                 "meta.function.return-annotation.python",
@@ -1400,9 +868,9 @@
             "settings": { "foreground": "#4EC9B0" }
         },
 
-        //  LAMBDA / CLOSURES
+        // == LAMBDA / CLOSURES
         {
-            "name": "Lambda - C++ Lambda capture / keyword",
+            "name": "Lambda - C++ Capture Brackets [ ]",
             "scope": [
                 "meta.lambda.cpp",
                 "punctuation.definition.lambda.begin.cpp",
@@ -1411,21 +879,7 @@
             "settings": { "foreground": "#DCDCAA" }
         },
         {
-            "name": "Lambda - C# Lambda Arrow (=>)",
-            "scope": [
-                "keyword.operator.arrow.cs"
-            ],
-            "settings": { "foreground": "#F44747" }
-        },
-        {
-            "name": "Lambda - Python Lambda keyword",
-            "scope": [
-                "keyword.declaration.function.lambda.python"
-            ],
-            "settings": { "foreground": "#C586C0" }
-        },
-        {
-            "name": "Lambda - Lua anonymous function (function(...))",
+            "name": "Lambda - Lua Anonymous Function",
             "scope": [
                 "meta.function.lua",
                 "keyword.control.def.lua"
@@ -1433,9 +887,9 @@
             "settings": { "foreground": "#DCDCAA" }
         },
 
-        //  INVALID / ERRORS
+        // == INVALID / ERROR
         {
-            "name": "Invalid - Illegal / Error",
+            "name": "Invalid",
             "scope": [
                 "invalid",
                 "invalid.illegal",
@@ -1444,73 +898,31 @@
             "settings": { "foreground": "#F44747" }
         },
 
-        //  COLOR CONSTANTS
+        // == TAG (HTML / XML)
         {
-            "name": "Color Constant",
-            "scope": [
-                "constant.other.color"
-            ],
-            "settings": { "foreground": "#DFD9C2" }
-        },
-
-        //  MISC / SUPPORT
-        {
-            "name": "Support - Class/Type (Library)",
-            "scope": [
-                "support.class",
-                "support.type.sys-types"
-            ],
-            "settings": { "foreground": "#4EC9B0" }
-        },
-        {
-            "name": "Other Variable / String Link",
-            "scope": [
-                "support.other.variable",
-                "string.other.link"
-            ],
-            "settings": { "foreground": "#9CDCFE" }
-        },
-        {
-            "name": "URL (underline only)",
-            "scope": [
-                "*url*",
-                "*link*",
-                "*uri*"
-            ],
-            "settings": { "fontStyle": "underline" }
-        },
-        {
-            "name": "Regular Expressions",
-            "scope": [
-                "string.regexp"
-            ],
-            "settings": { "foreground": "#B5CEA8" }
-        },
-
-        //  TAG (HTML / XML)
-        {
-            "name": "Tag",
+            "name": "Tag Name",
             "scope": [
                 "entity.name.tag",
-                "meta.tag.sgml",
-                "markup.deleted.git_gutter"
+                "meta.tag.sgml"
             ],
             "settings": { "foreground": "#569CD6" }
         },
         {
-            "name": "Attributes - HTML",
+            "name": "Attribute Name - HTML",
             "scope": [
                 "entity.other.attribute-name",
                 "text.html.basic entity.other.attribute-name.html",
                 "text.html.basic entity.other.attribute-name"
             ],
-            "settings": { "fontStyle": "italic", "foreground": "#DFD9C2" }
+            "settings": { "fontStyle": "italic", "foreground": "#dfd9c2" }
         },
 
-        //  CSS
+        // == CSS
         {
-            "name": "CSS Class",
-            "scope": [ "entity.other.attribute-name.class" ],
+            "name": "CSS Class Selector",
+            "scope": [
+                "entity.other.attribute-name.class"
+            ],
             "settings": { "foreground": "#D7BA7D" }
         },
         {
@@ -1526,7 +938,7 @@
             "settings": { "foreground": "#9CDCFE" }
         },
 
-        //  MARKUP (MARKDOWN)
+        // == MARKUP (MARKDOWN)
         {
             "name": "Markdown - Plain",
             "scope": [
@@ -1536,23 +948,27 @@
             "settings": { "foreground": "#D4D4D4" }
         },
         {
+            "name": "Markdown - Heading",
+            "scope": [
+                "markup.heading",
+                "markup.heading entity.name",
+                "markup.heading.markdown punctuation.definition.heading.markdown"
+            ],
+            "settings": { "foreground": "#c1b6a3" }
+        },
+        {
             "name": "Markdown - Inline Code",
-            "scope": [ "text.html.markdown markup.inline.raw.markdown" ],
+            "scope": [
+                "text.html.markdown markup.inline.raw.markdown"
+            ],
             "settings": { "foreground": "#CE9178" }
         },
         {
             "name": "Markdown - Inline Code Punctuation",
-            "scope": [ "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown" ],
-            "settings": { "foreground": "#5A5A5A" }
-        },
-        {
-            "name": "Markdown - Heading",
             "scope": [
-                "markdown.heading",
-                "markup.heading | markup.heading entity.name",
-                "markup.heading.markdown punctuation.definition.heading.markdown"
+                "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown"
             ],
-            "settings": { "foreground": "#C1B6A3" }
+            "settings": { "foreground": "#5A5A5A" }
         },
         {
             "name": "Markup - Italic",
@@ -1565,21 +981,9 @@
             "settings": { "foreground": "#D16969" }
         },
         {
-            "name": "Markup - Bold-Italic",
-            "scope": [
-                "markup.bold markup.italic",
-                "markup.italic markup.bold",
-                "markup.quote markup.bold",
-                "markup.bold markup.italic string",
-                "markup.italic markup.bold string",
-                "markup.quote markup.bold string"
-            ],
-            "settings": { "foreground": "#D16969" }
-        },
-        {
             "name": "Markup - Underline",
             "scope": [ "markup.underline" ],
-            "settings": { "fontStyle": "underline", "foreground": "#D3869B" }
+            "settings": { "fontStyle": "underline", "foreground": "#d3869b" }
         },
         {
             "name": "Markdown - Blockquote",
@@ -1587,12 +991,12 @@
             "settings": { "foreground": "#636369" }
         },
         {
-            "name": "Markup - Quote",
+            "name": "Markup - Quote (italic style only)",
             "scope": [ "markup.quote" ],
             "settings": { "fontStyle": "italic" }
         },
         {
-            "name": "Markdown - Link",
+            "name": "Markdown - Link Title",
             "scope": [ "string.other.link.title.markdown" ],
             "settings": { "foreground": "#569CD6" }
         },
@@ -1607,38 +1011,25 @@
             "settings": { "foreground": "#D7BA7D" }
         },
         {
-            "name": "Markup - Raw Block",
-            "scope": [ "markup.raw.block" ],
-            "settings": { "foreground": "#CE9178" }
-        },
-        {
-            "name": "Markdown - Raw Block Fenced",
-            "scope": [ "markup.raw.block.fenced.markdown" ],
-            "settings": { "foreground": "#404040" }
-        },
-        {
-            "name": "Markdown - Fenced Code Block",
-            "scope": [ "punctuation.definition.fenced.markdown" ],
-            "settings": { "foreground": "#404040" }
-        },
-        {
-            "name": "Markdown - Fenced Code Block Variable",
+            "name": "Markdown - Raw / Fenced Block",
             "scope": [
+                "markup.raw.block",
                 "markup.raw.block.fenced.markdown",
+                "punctuation.definition.fenced.markdown",
                 "variable.language.fenced.markdown",
                 "punctuation.section.class.end"
             ],
-            "settings": { "foreground": "#D4D4D4" }
+            "settings": { "foreground": "#404040" }
         },
         {
-            "name": "Markdown - Fenced Language",
+            "name": "Markdown - Fenced Language Label",
             "scope": [ "variable.language.fenced.markdown" ],
             "settings": { "foreground": "#636369" }
         },
         {
             "name": "Markdown - Separator",
             "scope": [ "meta.separator" ],
-            "settings":{ "foreground": "#636369" }
+            "settings": { "foreground": "#636369" }
         },
         {
             "name": "Markup - Table",
@@ -1646,7 +1037,7 @@
             "settings": { "foreground": "#D4D4D4" }
         },
         {
-            "name": "Markup - Inserted",
+            "name": "Markup - Inserted / Deleted / Changed (diff)",
             "scope": [ "markup.inserted" ],
             "settings": { "foreground": "#81B88B" }
         },
@@ -1661,7 +1052,7 @@
             "settings": { "foreground": "#E2C08D" }
         },
 
-        //  JSON KEY LEVELS
+        // == JSON KEY LEVELS
         {
             "name": "JSON Key - Level 0",
             "scope": [ "source.json meta.structure.dictionary.json support.type.property-name.json" ],
@@ -1706,6 +1097,18 @@
             "name": "JSON Key - Level 8",
             "scope": [ "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json" ],
             "settings": { "foreground": "#4EC9B0" }
+        },
+
+        // == MISC
+        {
+            "name": "URL (underline only)",
+            "scope": [ "*url*", "*link*", "*uri*" ],
+            "settings": { "fontStyle": "underline" }
+        },
+        {
+            "name": "Color Constant",
+            "scope": [ "constant.other.color" ],
+            "settings": { "foreground": "#dfd9c2" }
         }
     ]
 }
