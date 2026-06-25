@@ -419,7 +419,7 @@
                 "entity.name.type.record.cs",
                 "entity.name.type.class.python",
                 "meta.class.python entity.name.type",
-                "entity.name.type.class.lua"
+                "entity.name.type.class.lua",
             ],
             "settings": { "foreground": "#ffd700" }
         },
@@ -591,16 +591,17 @@
                 "variable.other.object.property.cpp",
                 "variable.other.property.cpp",
                 "entity.name.variable.cpp",
-                "entity.name.variable.field.cpp"
+                "entity.name.variable.field.cpp",
+                "entity.other.attribute.lua"
             ],
-            "settings": { "foreground": "#DCDCAA" }
+            "settings": { "foreground": "#9CDCFE" }
         },
         {
             "name": "Variable - Static Member (italic)",
             "scope": [
                 "variable.other.static.cpp"
             ],
-            "settings": { "fontStyle": "italic", "foreground": "#DCDCAA" }
+            "settings": { "fontStyle": "italic", "foreground": "#9CDCFE" }
         },
         {
             "name": "Variable - this / self / cls",
