@@ -1,41 +1,10 @@
 {
     "name": "GruVAssist",
 
-    //  PALETTE REFERENCE
-    //  bg0        #141414   editor background
-    //  bg1        #1d1d1d   panels / sidebar
-    //  bg2        #282828   borders
-    //  bg3        #3c3836   selections / subtle dividers
-    //  fg0        #EBDBB2   primary text / foreground
-    //  fg1        #dfd9c2   slightly dimmed text
-    //  fg2        #c1b6a3   strings / muted text
-    //  fg3        #A89984   ui labels / sidebar titles
-    //  fg4        #665c54   inactive tabs / dimmed
-    //  fg5        #504945   line numbers
-    //
-    //  red        #F44747   keywords / storage / control / errors
-    //  orange     #f09132   function declarations
-    //  yellow     #ffd700   type / class names
-    //  yellow2    #DCDCAA   function calls / member vars
-    //  green      #6A9955   comments
-    //  green2     #cbffb4   builtins (lib functions)
-    //  teal       #4EC9B0   types-in-use / interfaces
-    //  blue       #458588   accent (tabs, badges, menus)
-    //  blue2      #569CD6   variables / parameters
-    //  blue3      #9CDCFE   local variables / params
-    //  blue4      #4FC1FF   constants
-    //  purple     #C586C0   import / module keywords
-    //  purple2    #e0aad6   control flow keywords
-    //  pink       #d3869b   numbers / macro names
-    //  tan        #dfd9c2   namespace names
-    //  gray       #D4D4D4   operators / lua specials
-    //  gray2      #B2B2B2   pointer ops / scope resolution / template brackets
-    //  gold       #D7BA7D   escape sequences / format placeholders
-
     "colors": {
         "editor.background":                    "#141414",
         "editor.foreground":                    "#EBDBB2",
-        "editorLineNumber.foreground":          "#504945",
+        "editorLineNumber.foreground":          "#5A5A5A",
         "editorLineNumber.activeForeground":    "#ebebeb",
         "editor.lineHighlightBackground":       "#1d1d1d",
         "editor.selectionBackground":           "#3c383680",
@@ -80,10 +49,30 @@
         "menu.selectionForeground":             "#FFFFFF"
     },
 
+    "semanticHighlighting": true,
+
+    "semanticTokenColors": {
+
+        // C/C++ only — operator overload keyword at declaration site (operator+, operator<<, operator++, etc.)
+        "memberOperatorOverload:cpp": "#EBDBB2",
+        "operatorOverload:cpp":       "#EBDBB2",
+
+        // C/C++ only — reset punctuation so braces/parens never inherit orange from operator context
+        "punctuation": "#EBDBB2",
+        "punctuation:cpp": "#EBDBB2",
+        "punctuation:c":   "#EBDBB2",
+
+        // C/C++ only — static / member property access (e.g. Fibonacci<N-1>::value)
+        "property:cpp":        "#9CDCFE",
+        "property.static:cpp": "#9CDCFE",
+        "variable.static:cpp": "#9CDCFE",
+        "property:c":          "#9CDCFE",
+        "property.static:c":   "#9CDCFE"
+    },
+
     "tokenColors": [
 
         // == COMMENTS
-        // #6A9955  italic  = all comments across all languages
         {
             "name": "Comment",
             "scope": [
@@ -104,9 +93,6 @@
         },
 
         // == PREPROCESSOR DIRECTIVES
-        // #F44747  = directive keywords (#define #include #ifdef =)
-        // #d3869b  = the macro name defined after #define
-        // #c1b6a3  = the include path string
         {
             "name": "Preprocessor - Directive Keywords",
             "scope": [
@@ -127,6 +113,8 @@
                 "keyword.control.directive.conditional.if.c",
                 "keyword.control.directive.conditional.defined.cpp",
                 "keyword.control.directive.conditional.defined.c",
+                "keyword.control.directive.defined.cpp",
+                "keyword.control.directive.defined.c",
                 "keyword.control.directive.elif.cpp",
                 "keyword.control.directive.elif.c",
                 "keyword.control.directive.else.cpp",
@@ -159,6 +147,16 @@
                 "entity.name.other.preprocessor.macro.predefined._MSC_VER.c",
             ],
             "settings": { "foreground": "#d3869b" }
+        },
+        {
+            "name": "Preprocessor - defined() operator (prevent function-call color override)",
+            "scope": [
+                "keyword.control.directive.conditional.defined.cpp keyword.control.directive.defined.cpp",
+                "entity.name.function.call.cpp meta.preprocessor.cpp",
+                "meta.preprocessor.cpp entity.name.function.call.cpp",
+                "meta.preprocessor.cpp entity.name.function"
+            ],
+            "settings": { "foreground": "#F44747" }
         },
         {
             "name": "Preprocessor - Macro Parameters (reset brackets to neutral)",
@@ -198,8 +196,6 @@
         },
 
         // == KEYWORDS = CONTROL FLOW
-        // #e0aad6  = if / else / for / while / return / switch / try / catch (C++, C, C#, Python)
-        // #F44747  = Lua control (if/then/elseif/else/end/for/while/do/repeat/until/return/break/goto)
         {
             "name": "Keyword - Control Flow (C++, C, C#, Python)",
             "scope": [
@@ -222,7 +218,6 @@
         },
 
         // == KEYWORDS = STORAGE / TYPE DECLARATION
-        // #F44747  = class struct enum typedef using namespace auto template =
         {
             "name": "Keyword - Storage & Type Declaration",
             "scope": [
@@ -258,7 +253,6 @@
         },
 
         // == KEYWORDS = IMPORT / MODULE
-        // #C586C0  = import / using / from / as / namespace (the keyword, not the name)
         {
             "name": "Keyword - Import / Module",
             "scope": [
@@ -276,8 +270,6 @@
         },
 
         // == KEYWORDS = OPERATORS
-        // new / delete / sizeof / alignof / typeid / cast keywords = #F44747
-        // logical word operators (and/or/not/in) = #D4D4D4 (same as symbol ops)
         {
             "name": "Keyword - Operator Words (new / delete / sizeof / casts)",
             "scope": [
@@ -292,11 +284,31 @@
                 "keyword.operator.alignof.cpp",
                 "keyword.operator.typeid.cpp",
                 "keyword.operator.cast.static_cast.cpp",
+                "keyword.operator.cast.dynamic_cast.cpp",
                 "keyword.operator.cast.const_cast.cpp",
                 "keyword.operator.cast.reinterpret_cast.cpp",
                 "keyword.operator.cast.cpp",
                 "keyword.operator.arrow.cs",
-                "keyword.operator.null-coalescing.cs"
+                "keyword.operator.null-coalescing.cs",
+                "keyword.other.default.constructor.cpp",
+                "keyword.other.default.function.cpp",
+                "keyword.other.delete.constructor.cpp",
+                "keyword.other.delete.function.cpp"
+            ],
+            "settings": { "foreground": "#F44747" }
+        },
+        {
+            "name": "Keyword - C++ Word-like Keyword Operators (alignas, noexcept, requires, co_await, etc.)",
+            "scope": [
+                "keyword.operator.wordlike.cpp",
+                "keyword.operator.alignas.cpp",
+                "keyword.operator.noexcept.cpp",
+                "keyword.operator.requires.cpp",
+                "keyword.operator.co_await.cpp",
+                "keyword.operator.co_yield.cpp",
+                "keyword.operator.co_return.cpp",
+                "keyword.operator.throw.cpp",
+                "keyword.other.alignas.cpp"
             ],
             "settings": { "foreground": "#F44747" }
         },
@@ -315,6 +327,25 @@
             "settings": { "foreground": "#D4D4D4" }
         },
         {
+            "name": "Keyword - operator keyword at overload / conversion declaration site",
+            "scope": [
+                "keyword.other.operator.overload.cpp",
+                "keyword.other.operator.cpp",
+                "keyword.operator.conversion.cpp",
+                "keyword.operator.overload.cpp",
+                "meta.body.class.cpp",
+                "meta.block.class.cpp",
+                // operator keyword inside the special operator-overload function definition context
+                "meta.head.function.definition.special.operator-overload.cpp keyword",
+                "meta.function.definition.special.operator-overload.cpp keyword.other",
+                "meta.function.definition.special.operator-overload.cpp keyword.operator",
+                // operator keyword in class body with no deeper grammar scope (forward declarations, etc.)
+                "meta.body.class.cpp keyword.other",
+                "meta.block.class.cpp keyword.other"
+            ],
+            "settings": { "foreground": "#ebdbb2" }
+        },
+        {
             "name": "Keyword - General Fallback",
             "scope": [
                 "keyword",
@@ -324,7 +355,6 @@
         },
 
         // == ATTRIBUTES / DECORATORS
-        // #c1b6a3 italic  = [[nodiscard]], @decorator, [Attribute]
         {
             "name": "Attribute / Decorator / Annotation",
             "scope": [
@@ -344,8 +374,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#c1b6a3" }
         },
 
-        // == NAMESPACE        // #dfd9c2  = namespace / module names (the name token, not keyword)
-        // #B2B2B2  = :: scope resolution operator
+        // == NAMESPACE
         {
             "name": "Namespace - Name",
             "scope": [
@@ -372,8 +401,6 @@
         },
 
         // == CLASS / TYPE NAMES 
-        // #ffd700  = class / struct / enum name at declaration
-        // #4EC9B0  = type used (reference), interface names, STL types
         {
             "name": "Class - Name at Declaration",
             "scope": [
@@ -430,7 +457,6 @@
         },
 
         // == TYPES = PRIMITIVES 
-        // #F44747  = int float double char bool void auto =
         {
             "name": "Type - Primitive / Built-in",
             "scope": [
@@ -444,14 +470,14 @@
                 "storage.type.built-in.c",
                 "storage.type.built-in",
                 "keyword.type.cs",
-                "storage.type.primitive.cs"
+                "storage.type.primitive.cs",
+                // conversion operator target type: explicit operator bool() / explicit operator long long()
+                "entity.name.operator.type.cpp"
             ],
             "settings": { "foreground": "#F44747" }
         },
 
-        // == FUNCTIONS        // #f09132  = function / method name at declaration site
-        // #DCDCAA  = function / method call (invocation)
-        // #cbffb4  = built-in library functions
+        // == FUNCTIONS
         {
             "name": "Function - Declaration",
             "scope": [
@@ -498,8 +524,6 @@
         },
 
         // == PARAMETERS
-        // #9CDCFE  = all function parameters
-        // #D16969 italic  = self / cls / this
         {
             "name": "Parameter",
             "scope": [
@@ -532,9 +556,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#9CDCFE" }
         },
 
-        // == VARIABLES        // #9CDCFE  = local variables
-        // #DCDCAA  = member / field variables (this->x, self.x)
-        // #D16969 italic  = this / self / cls language keyword
+        // == VARIABLES
         {
             "name": "Variable - Local",
             "scope": [
@@ -564,7 +586,12 @@
                 "entity.name.variable.field.cs",
                 "entity.name.variable.property.cs",
                 "variable.other.field.python",
-                "meta.attribute.python variable.other"
+                "meta.attribute.python variable.other",
+                // static member accessed via :: (e.g. Fibonacci<N-1>::value)
+                "variable.other.object.property.cpp",
+                "variable.other.property.cpp",
+                "entity.name.variable.cpp",
+                "entity.name.variable.field.cpp"
             ],
             "settings": { "foreground": "#DCDCAA" }
         },
@@ -589,11 +616,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#D16969" }
         },
 
-        // == CONSTANTS        // #d3869b  = numeric literals (digits + prefixes + suffixes, all bases)
-        // #F44747  = language constants (true/false/null/nullptr/nil)
-        // #4FC1FF  = user-defined named constants (constexpr, const, readonly)
-        // #b8d7a3  = enum member values
-        // #D7BA7D  = escape sequences & format placeholders
+        // == CONSTANTS
         {
             "name": "Constant - Numeric Literals (digits, all bases)",
             "scope": [
@@ -719,8 +742,7 @@
             "settings": { "foreground": "#D7BA7D" }
         },
 
-        // == OPERATORS        // #D4D4D4  = arithmetic / assignment / comparison / logical / bitwise / ternary
-        // #B2B2B2  = pointer / member access / dereference / address-of (quieter)
+        // == OPERATORS
         {
             "name": "Operator - Arithmetic, Assignment, Comparison, Logical, Bitwise",
             "scope": [
@@ -783,8 +805,6 @@
         },
 
         // == STRINGS
-        // #c1b6a3  = all string content
-        // #c1b6a3 italic  = docstrings / triple-quoted
         {
             "name": "String",
             "scope": [
