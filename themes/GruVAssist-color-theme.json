@@ -500,17 +500,17 @@
             ],
             "settings": { "foreground": "#f09132" }
         },
-        {
-            "name": "Function - Call (invocation)",
-            "scope": [
-                "meta.function-call.cpp",
-                "meta.function-call.c",
-                "meta.method-call.cs",
-                "meta.function-call.cs",
-                "meta.function-call.python entity.name.function.python"
-            ],
-            "settings": { "foreground": "#DCDCAA" }
-        },
+        // {
+        //     "name": "Function - Call (invocation)",
+        //     "scope": [
+        //         "meta.function-call.cpp",
+        //         "meta.function-call.c",
+        //         "meta.method-call.cs",
+        //         "meta.function-call.cs",
+        //         "meta.function-call.python entity.name.function.python"
+        //     ],
+        //     "settings": { "foreground": "#DCDCAA" }
+        // },
         {
             "name": "Function - Built-in Library",
             "scope": [
