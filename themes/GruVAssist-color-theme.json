@@ -1,7 +1,10 @@
 {
     "name": "GruVAssist",
 
+    // ── EDITOR UI COLORS ──────────────────────────────────────────────────────
+    // Controls the overall look of the editor, sidebar, tabs, and status bar.
     "colors": {
+        // Main editor area
         "editor.background":                    "#161616",
         "editor.foreground":                    "#EBDBB2",
         "editorLineNumber.foreground":          "#504945",
@@ -10,6 +13,7 @@
         "editor.selectionBackground":           "#3c383680",
         "editorCursor.foreground":              "#EBDBB2",
 
+        // Sidebar and activity bar (left panel)
         "activityBar.background":               "#1c1c1c",
         "activityBar.border":                   "#2a2a2a",
         "sideBar.background":                   "#1c1c1c",
@@ -17,6 +21,7 @@
         "sideBarTitle.foreground":              "#A89984",
         "sideBarSectionHeader.background":      "#232323",
 
+        // Tabs (open file tabs at the top)
         "tab.activeBackground":                 "#161616",
         "tab.activeForeground":                 "#EBDBB2",
         "tab.activeBorder":                     "#689d6a",
@@ -25,24 +30,28 @@
         "editorGroupHeader.tabsBackground":     "#1c1c1c",
         "editorGroupHeader.tabsBorder":         "#2a2a2a",
 
+        // Status bar (bottom bar) and editor widgets (autocomplete box, etc.)
         "statusBar.background":                 "#1c1c1c",
         "statusBar.border":                     "#2a2a2a",
         "statusBar.foreground":                 "#A89984",
         "editorWidget.background":              "#232323",
         "editorWidget.border":                  "#3c3836",
 
+        // Notification badges and progress bar
         "activityBarBadge.background":          "#3c5a3e",
         "activityBarBadge.foreground":          "#8ec07c",
         "badge.background":                     "#3c5a3e",
         "badge.foreground":                     "#8ec07c",
         "progressBar.background":               "#689d6a",
 
+        // Title bar (window title at the very top)
         "titleBar.activeBackground":            "#161616",
         "titleBar.activeForeground":            "#EBDBB2",
         "titleBar.inactiveBackground":          "#161616",
         "titleBar.inactiveForeground":          "#665c54",
         "titleBar.border":                      "#2a2a2a",
 
+        // Menu bar (File / Edit / View / ...)
         "menubar.selectionBackground":          "#3c3836",
         "menubar.selectionForeground":          "#EBDBB2",
         "menu.background":                      "#232323",
@@ -54,61 +63,72 @@
     },
 
 
+    // ── SEMANTIC HIGHLIGHTING ─────────────────────────────────────────────────
+    // Semantic tokens come from the language server (LSP) and are more accurate
+    // than TextMate scopes. They override TextMate rules for supported languages.
     "semanticHighlighting": true,
 
     "semanticTokenColors": {
 
-        // ── OPERATOR OVERLOADS ────────────────────────────────────────────────
-        // operator keyword at declaration site (operator+, operator<<, etc.)
+        // Operator overload keywords at the declaration site (e.g. operator+)
         "memberOperatorOverload:cpp": "#EBDBB2",
         "operatorOverload:cpp":       "#EBDBB2",
 
-        // ── PUNCTUATION RESET ─────────────────────────────────────────────────
-        // Prevent braces/parens from inheriting orange from operator context
+        // Reset punctuation to neutral so braces/parens don't inherit operator color
         "punctuation":     "#EBDBB2",
         "punctuation:cpp": "#EBDBB2",
         "punctuation:c":   "#EBDBB2",
 
-        // ── VARIABLES — LOCAL / GLOBAL  →  blue #9CDCFE ───────────────────────
-        // cpptools emits "variable" for locals, globals, and parameters.
-        // We set the base "variable" token here; "property" overrides below
-        // for members, so the two never conflict.
+        // Local and global variables — blue
         "variable":        "#9CDCFE",
         "variable:cpp":    "#9CDCFE",
         "variable:c":      "#9CDCFE",
-
-        // explicit modifier variants (cpptools / clangd)
         "variable.local:cpp":   "#9CDCFE",
         "variable.local:c":     "#9CDCFE",
         "variable.global:cpp":  "#83a598",
         "variable.global:c":    "#83a598",
-        "variable.global:lua": "#83a598",
+        "variable.global:lua":  "#83a598",
 
-        // ── VARIABLES — MEMBER / FIELD  →  tan #dfd9c2 ────────────────────────
-        // cpptools uses semantic type "property" for instance member variables.
-        // clangd uses "field". Both are covered.
-        // C struct fields (C) are also "property" in cpptools, "field" in clangd.
-
-        // cpptools (ms-vscode.cpptools)
+        // Member variables and struct fields — tan/warm white
+        // cpptools uses "property", clangd uses "field"
         "property:cpp":          "#dfd9c2",
         "property:c":            "#dfd9c2",
         "property.static:cpp":   "#dfd9c2",
         "property.static:c":     "#dfd9c2",
-
-        // clangd (llvm-vs-code-extensions.vscode-clangd)
         "field:cpp":             "#dfd9c2",
         "field:c":               "#dfd9c2",
         "field.static:cpp":      "#dfd9c2",
         "field.static:c":        "#dfd9c2",
-
-        // cpptools also emits variable.static for static members in some cases
         "variable.static:cpp":   "#dfd9c2",
-        "variable.static:c":     "#dfd9c2"
+        "variable.static:c":     "#dfd9c2",
+
+        // Rust — variables and parameters
+        "variable:rust":               "#9CDCFE",
+        "variable.local:rust":         "#9CDCFE",
+        "parameter:rust":              "#9CDCFE",
+        "variable.declaration:rust":   "#9CDCFE",
+
+        // Rust — struct fields and enum variants
+        "property:rust":               "#dfd9c2",
+        "field:rust":                  "#dfd9c2",
+        "enumMember:rust":             "#b8d7a3",
+
+        // Rust — lifetimes (e.g. 'a)
+        "lifetime:rust":               "#D7BA7D",
+
+        // Rust — type parameters (T, K, V in generics)
+        "typeParameter:rust":          "#F44747",
+
+        // Rust — macros (println!, vec!, etc.)
+        "macro:rust":                  "#d3869b",
+
+        // Rust — self keyword
+        "selfKeyword:rust":            "#D16969"
     },
 
     "tokenColors": [
 
-        // == COMMENTS
+        // ── COMMENTS ──────────────────────────────────────────────────────────
         {
             "name": "Comment",
             "scope": [
@@ -118,7 +138,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#6A9955" }
         },
         {
-            "name": "Comment - C# XML Doc (triple-slash tags, slightly brighter)",
+            "name": "Comment - C# XML doc (triple-slash, slightly brighter)",
             "scope": [
                 "comment.line.documentation.cs",
                 "comment.block.documentation.cs",
@@ -128,7 +148,8 @@
             "settings": { "fontStyle": "italic", "foreground": "#4CAF82" }
         },
 
-        // == PREPROCESSOR DIRECTIVES
+        // ── PREPROCESSOR DIRECTIVES ───────────────────────────────────────────
+        // #include, #define, #if, #pragma, etc. — shown in red
         {
             "name": "Preprocessor - Directive Keywords",
             "scope": [
@@ -173,7 +194,7 @@
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Preprocessor - Macro Name (symbol after #define)",
+            "name": "Preprocessor - Macro name (symbol after #define)",
             "scope": [
                 "entity.name.function.preprocessor.cpp",
                 "entity.name.function.preprocessor.c",
@@ -195,7 +216,7 @@
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Preprocessor - Macro Parameters (reset brackets to neutral)",
+            "name": "Preprocessor - Macro parameters (neutral color for brackets/params)",
             "scope": [
                 "punctuation.definition.parameters.preprocessor.cpp",
                 "punctuation.definition.parameters.preprocessor.c",
@@ -205,7 +226,7 @@
             "settings": { "foreground": "#B2B2B2" }
         },
         {
-            "name": "Preprocessor - #include Path",
+            "name": "Preprocessor - #include path",
             "scope": [
                 "string.quoted.other.lt-gt.include.cpp",
                 "string.quoted.other.lt-gt.include.c",
@@ -215,23 +236,24 @@
             "settings": { "foreground": "#c1b6a3" }
         },
         {
-            "name": "Preprocessor - Predefined Macros (__FILE__ __LINE__ __DATE__ etc.)",
+            "name": "Preprocessor - Built-in macros (__FILE__, __LINE__, __DATE__, etc.)",
             "scope": [
                 "support.constant.cpp"
             ],
             "settings": { "fontStyle": "italic", "foreground": "#d3869b" }
         },
         {
-            "name": "Preprocessor - C# Region Name",
+            "name": "Preprocessor - C# region name",
             "scope": [
                 "meta.preprocessor.region.cs string"
             ],
             "settings": { "fontStyle": "italic", "foreground": "#A89984" }
         },
 
-        // == KEYWORDS = CONTROL FLOW
+        // ── KEYWORDS — CONTROL FLOW ───────────────────────────────────────────
+        // if, else, for, while, return, break, continue, match, etc.
         {
-            "name": "Keyword - Control Flow (C++, C, C#, Python)",
+            "name": "Keyword - Control flow (C++, C, C#, Python, Rust)",
             "scope": [
                 "keyword.control",
                 "keyword.control.cpp",
@@ -239,21 +261,24 @@
                 "keyword.control.cs",
                 "keyword.control.flow.cs",
                 "keyword.control.flow.python",
-                "keyword.control.python"
+                "keyword.control.python",
+                "keyword.control.rust",
+                "keyword.control.flow.rust"
             ],
             "settings": { "foreground": "#e0aad6" }
         },
         {
-            "name": "Keyword - Control Flow Lua (red, matches keyword color)",
+            "name": "Keyword - Control flow Lua (red, matches general keyword color)",
             "scope": [
                 "keyword.control.lua"
             ],
             "settings": { "foreground": "#F44747" }
         },
 
-        // == KEYWORDS = STORAGE / TYPE DECLARATION
+        // ── KEYWORDS — STORAGE / TYPE DECLARATION ─────────────────────────────
+        // struct, class, enum, fn, let, const, pub, static, extern, etc.
         {
-            "name": "Keyword - Storage & Type Declaration",
+            "name": "Keyword - Storage and type declaration",
             "scope": [
                 "storage.modifier",
                 "storage.type",
@@ -272,12 +297,15 @@
                 "keyword.other.python",
                 "storage.type.function.lua",
                 "support.type.property.cmake",
-                "support.function.commandProperty.cmake"
+                "support.function.commandProperty.cmake",
+                "storage.type.rust",
+                "storage.modifier.rust",
+                "keyword.other.rust"
             ],
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Keyword - C# Storage & Modifiers",
+            "name": "Keyword - C# storage and modifiers",
             "scope": [
                 "storage.modifier.cs",
                 "keyword.other.class.cs",
@@ -285,10 +313,19 @@
             ],
             "settings": { "foreground": "#F44747" }
         },
-
-        // == KEYWORDS = IMPORT / MODULE
         {
-            "name": "Keyword - Import / Module",
+            "name": "C/C++ array brackets [] — reset to neutral",
+            "scope": [
+                "storage.modifier.array.bracket.square.c",
+                "storage.modifier.array.bracket.square.cpp"
+            ],
+            "settings": { "foreground": "#EBDBB2" }
+        },
+
+        // ── KEYWORDS — IMPORT / MODULE ────────────────────────────────────────
+        // import, from, use, mod, extern crate
+        {
+            "name": "Keyword - Import and module",
             "scope": [
                 "keyword.control.import",
                 "keyword.control.from",
@@ -298,14 +335,17 @@
                 "keyword.control.as.python",
                 "keyword.other.using.cs",
                 "keyword.other.namespace.cs",
-                "keyword.declaration.function.lambda.python"
+                "keyword.declaration.function.lambda.python",
+                "keyword.other.crate.rust",
+                "keyword.control.import.rust"
             ],
             "settings": { "foreground": "#C586C0" }
         },
 
-        // == KEYWORDS = OPERATORS
+        // ── KEYWORDS — OPERATORS ──────────────────────────────────────────────
+        // new, delete, sizeof, as, typeof, casts
         {
-            "name": "Keyword - Operator Words (new / delete / sizeof / casts)",
+            "name": "Keyword - Operator words (new, delete, sizeof, casts)",
             "scope": [
                 "keyword.operator.new.cpp",
                 "keyword.operator.delete.cpp",
@@ -327,12 +367,14 @@
                 "keyword.other.default.constructor.cpp",
                 "keyword.other.default.function.cpp",
                 "keyword.other.delete.constructor.cpp",
-                "keyword.other.delete.function.cpp"
+                "keyword.other.delete.function.cpp",
+                "keyword.operator.as.rust",
+                "keyword.operator.sizeof.rust"
             ],
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Keyword - C++ Word-like Keyword Operators (alignas, noexcept, requires, co_await, etc.)",
+            "name": "Keyword - C++ word-like operators (alignas, noexcept, requires, co_await, etc.)",
             "scope": [
                 "keyword.operator.wordlike.cpp",
                 "keyword.operator.alignas.cpp",
@@ -347,7 +389,7 @@
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Keyword - Logical Word Operators (and / or / not / in / is)",
+            "name": "Keyword - Logical word operators (and, or, not, in, is)",
             "scope": [
                 "keyword.operator.logical.python",
                 "keyword.operator.wordlike.python",
@@ -376,7 +418,7 @@
             "settings": { "foreground": "#ebdbb2" }
         },
         {
-            "name": "Keyword - General Fallback",
+            "name": "Keyword - General fallback",
             "scope": [
                 "keyword",
                 "keyword.other"
@@ -384,7 +426,8 @@
             "settings": { "foreground": "#F44747" }
         },
 
-        // == ATTRIBUTES / DECORATORS
+        // ── ATTRIBUTES / DECORATORS ───────────────────────────────────────────
+        // #[derive(...)] in Rust, @decorator in Python, [Attribute] in C#
         {
             "name": "Attribute / Decorator / Annotation",
             "scope": [
@@ -399,12 +442,16 @@
                 "punctuation.section.attribute.end.cpp",
                 "entity.name.function.decorator.python",
                 "meta.function.decorator.python",
-                "punctuation.definition.decorator.python"
+                "punctuation.definition.decorator.python",
+                "meta.attribute.rust",
+                "entity.name.function.attribute.rust",
+                "punctuation.definition.attribute.rust"
             ],
             "settings": { "fontStyle": "italic", "foreground": "#c1b6a3" }
         },
 
-        // == NAMESPACE
+        // ── NAMESPACES ────────────────────────────────────────────────────────
+        // Module and namespace names after use / using / namespace
         {
             "name": "Namespace - Name",
             "scope": [
@@ -417,22 +464,25 @@
                 "support.other.module.python",
                 "meta.import.python entity.name.namespace.python",
                 "support.other.namespace.use.php",
-                "support.other.namespace.php"
+                "support.other.namespace.php",
+                "entity.name.namespace.rust"
             ],
             "settings": { "foreground": "#D4D4D4" }
         },
         {
-            "name": "Namespace - Scope Resolution Operator (::)",
+            "name": "Namespace - Scope resolution operator (::)",
             "scope": [
                 "punctuation.separator.namespace.access.cpp",
-                "meta.scope.resolution.cpp"
+                "meta.scope.resolution.cpp",
+                "keyword.operator.path.rust"
             ],
             "settings": { "foreground": "#B2B2B2" }
         },
 
-        // == CLASS / TYPE NAMES
+        // ── CLASS / TYPE NAMES ────────────────────────────────────────────────
+        // Names at the declaration point: struct Foo, class Bar, enum Baz
         {
-            "name": "Class - Name at Declaration",
+            "name": "Class - Name at declaration",
             "scope": [
                 "entity.name.type",
                 "entity.name.type.class",
@@ -449,12 +499,17 @@
                 "entity.name.type.record.cs",
                 "entity.name.type.class.python",
                 "meta.class.python entity.name.type",
-                "entity.name.type.class.lua"
+                "entity.name.type.class.lua",
+                "entity.name.type.struct.rust",
+                "entity.name.type.enum.rust",
+                "entity.name.type.union.rust",
+                "entity.name.type.trait.rust",
+                "entity.name.type.impl.rust"
             ],
             "settings": { "foreground": "#ffd700" }
         },
         {
-            "name": "Class - Inherited Base Class",
+            "name": "Class - Inherited base class",
             "scope": [
                 "entity.other.inherited-class.cpp",
                 "entity.other.inherited-class.python"
@@ -462,7 +517,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#ffd700" }
         },
         {
-            "name": "Class - Template Type Parameter (typename T)",
+            "name": "Class - Template type parameter (typename T)",
             "scope": [
                 "entity.name.type.template.cpp",
                 "storage.type.template.argument.typename.cpp"
@@ -470,7 +525,7 @@
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Type - Used / Referenced (STL, support types, interfaces)",
+            "name": "Type - Used / Referenced (STL, support types, traits, interfaces)",
             "scope": [
                 "support.class.std.cpp",
                 "support.class.cs",
@@ -481,12 +536,15 @@
                 "support.class.python",
                 "support.type.lua",
                 "support.class",
-                "support.type.sys-types"
+                "support.type.sys-types",
+                "support.type.rust",
+                "entity.name.type.rust"
             ],
             "settings": { "foreground": "#4EC9B0" }
         },
 
-        // == TYPES = PRIMITIVES
+        // ── TYPES — PRIMITIVES ────────────────────────────────────────────────
+        // int, float, bool, char, void, u32, i64, f64, str, etc.
         {
             "name": "Type - Primitive / Built-in",
             "scope": [
@@ -501,12 +559,16 @@
                 "storage.type.built-in",
                 "keyword.type.cs",
                 "storage.type.primitive.cs",
-                "entity.name.operator.type.cpp"
+                "entity.name.operator.type.cpp",
+                "storage.type.core.rust",
+                "keyword.type.rust",
+                "entity.name.type.primitive.rust"
             ],
             "settings": { "foreground": "#F44747" }
         },
 
-        // == FUNCTIONS
+        // ── FUNCTIONS ─────────────────────────────────────────────────────────
+        // Function and method names at declaration and call sites
         {
             "name": "Function - Declaration",
             "scope": [
@@ -525,23 +587,26 @@
                 "support.function.magic.python",
                 "entity.name.function.magic.python",
                 "entity.name.function.lua",
-                "entity.name.function.method.lua"
+                "entity.name.function.method.lua",
+                "entity.name.function.rust",
+                "meta.function.definition.rust entity.name.function.rust"
             ],
             "settings": { "foreground": "#f09132" }
         },
         {
-            "name": "Function - Built-in Library",
+            "name": "Function - Built-in library function",
             "scope": [
                 "support.function.builtin.python",
                 "meta.function-call.python support.function.builtin",
                 "support.function.lua",
                 "support.function.cmake",
-                "support.function"
+                "support.function",
+                "support.function.rust"
             ],
             "settings": { "foreground": "#f09132" }
         },
 
-        // == PARAMETERS
+        // ── PARAMETERS ────────────────────────────────────────────────────────
         {
             "name": "Parameter",
             "scope": [
@@ -553,7 +618,8 @@
                 "meta.function.parameters.python variable.parameter",
                 "variable.parameter.args.python",
                 "variable.parameter.kwargs.python",
-                "variable.parameter.lua"
+                "variable.parameter.lua",
+                "variable.parameter.rust"
             ],
             "settings": { "foreground": "#9CDCFE" }
         },
@@ -574,11 +640,9 @@
             "settings": { "fontStyle": "italic", "foreground": "#9CDCFE" }
         },
 
-        // == VARIABLES
-        // NOTE: The semantic distinction between local/global (blue) and
-        // member/static (tan) is driven by semanticTokenColors above.
-        // TextMate rules here are the fallback when the LSP is not active
-        // (e.g. no IntelliSense, plain file open, non-C/C++ languages).
+        // ── VARIABLES ─────────────────────────────────────────────────────────
+        // TextMate fallback rules used when the LSP is not active.
+        // Semantic token rules (above) take over when the LSP is running.
         {
             "name": "Variable - Local / Global (TextMate fallback)",
             "scope": [
@@ -594,12 +658,13 @@
                 "variable.function",
                 "meta.block variable.other",
                 "support.other.variable",
-                "support.type.variable.cmake"
+                "support.type.variable.cmake",
+                "variable.other.rust"
             ],
             "settings": { "foreground": "#9CDCFE" }
         },
         {
-            "name": "Variable - Member / Field (TextMate fallback — C++, C struct, C#, Python, Lua)",
+            "name": "Variable - Member / Field (TextMate fallback — C++, C struct, C#, Python, Lua, Rust)",
             "scope": [
                 "variable.other.member.cpp",
                 "variable.other.field.cpp",
@@ -612,12 +677,13 @@
                 "variable.other.property.cpp",
                 "entity.name.variable.cpp",
                 "entity.name.variable.field.cpp",
-                "entity.other.attribute.lua"
+                "entity.other.attribute.lua",
+                "variable.other.member.rust"
             ],
             "settings": { "foreground": "#dfd9c2" }
         },
         {
-            "name": "Variable - Static Member (TextMate fallback — italic)",
+            "name": "Variable - Static member (TextMate fallback, italic)",
             "scope": [
                 "variable.other.static.cpp"
             ],
@@ -632,14 +698,15 @@
                 "variable.language.this.cs",
                 "variable.language.special.self.python",
                 "variable.language.special.cls.python",
-                "variable.language.self.lua"
+                "variable.language.self.lua",
+                "variable.language.self.rust"
             ],
             "settings": { "fontStyle": "italic", "foreground": "#D16969" }
         },
 
-        // == CONSTANTS
+        // ── CONSTANTS ─────────────────────────────────────────────────────────
         {
-            "name": "Constant - Numeric Literals (digits, all bases)",
+            "name": "Constant - Numeric literals (all bases: decimal, hex, octal, binary, float)",
             "scope": [
                 "constant.numeric",
                 "constant.numeric.cpp",
@@ -670,12 +737,18 @@
                 "constant.numeric.lua",
                 "constant.numeric.float.lua",
                 "constant.numeric.integer.lua",
-                "constant.numeric.hex.lua"
+                "constant.numeric.hex.lua",
+                "constant.numeric.rust",
+                "constant.numeric.integer.rust",
+                "constant.numeric.float.rust",
+                "constant.numeric.hex.rust",
+                "constant.numeric.binary.rust",
+                "constant.numeric.octal.rust"
             ],
             "settings": { "foreground": "#d3869b" }
         },
         {
-            "name": "Constant - Numeric Suffixes & UDL (u/L/f/ULL/0x prefix/etc.)",
+            "name": "Constant - Numeric suffixes and UDL (u, L, f, ULL, 0x prefix, etc.)",
             "scope": [
                 "keyword.other.unit.cpp",
                 "keyword.other.unit.decimal.cpp",
@@ -695,12 +768,13 @@
                 "keyword.other.unit.hexadecimal.cs",
                 "keyword.other.unit.binary.cs",
                 "keyword.other.unit.suffix",
-                "keyword.other.unit"
+                "keyword.other.unit",
+                "storage.type.numeric.rust"
             ],
             "settings": { "foreground": "#d3869b" }
         },
         {
-            "name": "Constant - Language (true / false / null / nullptr / nil / None)",
+            "name": "Constant - Language keywords (true, false, null, nullptr, nil, None)",
             "scope": [
                 "constant.language",
                 "constant.language.nullptr.cpp",
@@ -715,12 +789,15 @@
                 "constant.builtin.python",
                 "constant.language.lua",
                 "constant.language.boolean.lua",
-                "constant.language.nil.lua"
+                "constant.language.nil.lua",
+                "constant.language.rust",
+                "constant.language.boolean.true.rust",
+                "constant.language.boolean.false.rust"
             ],
             "settings": { "foreground": "#F44747" }
         },
         {
-            "name": "Constant - User-defined Named (const / constexpr / readonly)",
+            "name": "Constant - User-defined named constants (const, constexpr, readonly)",
             "scope": [
                 "variable.other.constant",
                 "entity.name.variable.const"
@@ -728,28 +805,30 @@
             "settings": { "foreground": "#4FC1FF" }
         },
         {
-            "name": "Constant - Enum Member Value",
+            "name": "Constant - Enum member value",
             "scope": [
                 "variable.other.enummember.cpp",
                 "entity.name.variable.enumerator.cpp",
-                "entity.name.variable.enum-member.cs"
+                "entity.name.variable.enum-member.cs",
+                "entity.name.type.enum.variant.rust"
             ],
             "settings": { "foreground": "#b8d7a3" }
         },
         {
-            "name": "Constant - Escape Sequence & Format Placeholder",
+            "name": "Constant - Escape sequences and format placeholders (\\n, %d, {0})",
             "scope": [
                 "constant.character.escape",
                 "constant.other.placeholder",
                 "string constant.other.placeholder",
-                "constant.character.format.placeholder.other.python"
+                "constant.character.format.placeholder.other.python",
+                "constant.character.escape.rust"
             ],
             "settings": { "foreground": "#D7BA7D" }
         },
 
-        // == OPERATORS
+        // ── OPERATORS ─────────────────────────────────────────────────────────
         {
-            "name": "Operator - Arithmetic, Assignment, Comparison, Logical, Bitwise",
+            "name": "Operator - Arithmetic, assignment, comparison, logical, bitwise",
             "scope": [
                 "keyword.operator",
                 "keyword.operator.arithmetic",
@@ -784,12 +863,18 @@
                 "keyword.operator.arithmetic.lua",
                 "keyword.operator.concatenation.lua",
                 "keyword.operator.comparison.lua",
-                "keyword.operator.length.lua"
+                "keyword.operator.length.lua",
+                "keyword.operator.arithmetic.rust",
+                "keyword.operator.assignment.rust",
+                "keyword.operator.comparison.rust",
+                "keyword.operator.logical.rust",
+                "keyword.operator.bitwise.rust",
+                "keyword.operator.range.rust"
             ],
-            "settings": { "foreground": "#D4D4D4" }
+            "settings": { "foreground": "#EBDBB2" }
         },
         {
-            "name": "Operator - Pointer / Member Access / Address (quieter)",
+            "name": "Operator - Pointer, member access, address (quieter / gray)",
             "scope": [
                 "keyword.operator.dereference.cpp",
                 "keyword.operator.dereference.c",
@@ -804,12 +889,62 @@
                 "keyword.operator.null-conditional.cs",
                 "storage.modifier.reference.cpp",
                 "storage.modifier.pointer.cpp",
-                "storage.modifier.pointer.c"
+                "storage.modifier.pointer.c",
+                "keyword.operator.dereference.rust",
+                "keyword.operator.reference.rust",
+                "keyword.operator.borrow.rust",
+                "keyword.operator.misc.rust",
+                "punctuation.accessor.rust"
             ],
             "settings": { "foreground": "#B2B2B2" }
         },
 
-        // == STRINGS
+        // ── RUST — LIFETIMES ──────────────────────────────────────────────────
+        // Lifetime annotations like 'a, 'static, 'b
+        {
+            "name": "Rust - Lifetime annotation",
+            "scope": [
+                "storage.modifier.lifetime.rust",
+                "entity.name.lifetime.rust",
+                "punctuation.definition.lifetime.rust"
+            ],
+            "settings": { "foreground": "#D7BA7D" }
+        },
+
+        // ── RUST — MACROS ─────────────────────────────────────────────────────
+        // println!, vec!, format!, todo!, panic!, etc.
+        {
+            "name": "Rust - Macro invocation",
+            "scope": [
+                "support.function.macro.rust",
+                "entity.name.function.macro.rust",
+                "meta.macro.rust entity.name.function",
+                "meta.macro-call.rust entity.name.function.rust",
+                "keyword.other.macro.rust"
+            ],
+            "settings": { "foreground": "#d3869b" }
+        },
+        {
+            "name": "Rust - Macro punctuation (the ! and surrounding braces)",
+            "scope": [
+                "punctuation.definition.macro.rust",
+                "punctuation.section.macro.rust"
+            ],
+            "settings": { "foreground": "#B2B2B2" }
+        },
+
+        // ── RUST — TRAIT BOUNDS & WHERE CLAUSE ───────────────────────────────
+        {
+            "name": "Rust - where / impl / dyn in trait bounds",
+            "scope": [
+                "keyword.other.where.rust",
+                "storage.type.impl.rust",
+                "storage.type.dyn.rust"
+            ],
+            "settings": { "foreground": "#C586C0" }
+        },
+
+        // ── STRINGS ───────────────────────────────────────────────────────────
         {
             "name": "String",
             "scope": [
@@ -830,7 +965,10 @@
                 "string.quoted.single.lua",
                 "string.quoted.double.lua",
                 "string.quoted.other.multiline.lua",
-                "string.other.link"
+                "string.other.link",
+                "string.quoted.double.rust",
+                "string.quoted.single.rust",
+                "string.quoted.byte.raw.rust"
             ],
             "settings": { "foreground": "#c1b6a3" }
         },
@@ -843,7 +981,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#c1b6a3" }
         },
         {
-            "name": "String - Interpolation Braces",
+            "name": "String - Interpolation braces",
             "scope": [
                 "punctuation.definition.interpolation.begin.cs",
                 "punctuation.definition.interpolation.end.cs"
@@ -851,14 +989,14 @@
             "settings": { "foreground": "#B2B2B2" }
         },
         {
-            "name": "String - Regular Expression",
+            "name": "String - Regular expression",
             "scope": [ "string.regexp" ],
             "settings": { "foreground": "#B5CEA8" }
         },
 
-        // == GENERICS / TEMPLATES
+        // ── GENERICS / TEMPLATES ──────────────────────────────────────────────
         {
-            "name": "Generic - C++ Template Angle Brackets",
+            "name": "Generic - C++ template angle brackets",
             "scope": [
                 "meta.template.cpp",
                 "punctuation.section.angle-brackets.begin.template.cpp",
@@ -867,7 +1005,7 @@
             "settings": { "foreground": "#B2B2B2" }
         },
         {
-            "name": "Generic - C# Type Parameter < T >",
+            "name": "Generic - C# type parameter <T>",
             "scope": [
                 "punctuation.definition.typeparameters.begin.cs",
                 "punctuation.definition.typeparameters.end.cs"
@@ -875,12 +1013,12 @@
             "settings": { "foreground": "#B2B2B2" }
         },
         {
-            "name": "Generic - C# Constraint (where T : ...)",
+            "name": "Generic - C# constraint (where T : ...)",
             "scope": [ "keyword.where.cs" ],
             "settings": { "foreground": "#C586C0" }
         },
         {
-            "name": "Generic - Python Type Hints",
+            "name": "Generic - Python type hints",
             "scope": [
                 "meta.function.annotation.python",
                 "meta.function.return-annotation.python",
@@ -888,10 +1026,19 @@
             ],
             "settings": { "foreground": "#4EC9B0" }
         },
-
-        // == LAMBDA / CLOSURES
         {
-            "name": "Lambda - C++ Capture Brackets [ ]",
+            "name": "Generic - Rust angle brackets for generics <T>",
+            "scope": [
+                "punctuation.definition.generic.begin.rust",
+                "punctuation.definition.generic.end.rust",
+                "meta.generic.rust"
+            ],
+            "settings": { "foreground": "#B2B2B2" }
+        },
+
+        // ── LAMBDA / CLOSURES ─────────────────────────────────────────────────
+        {
+            "name": "Lambda - C++ capture brackets []",
             "scope": [
                 "meta.lambda.cpp",
                 "punctuation.definition.lambda.begin.cpp",
@@ -900,15 +1047,23 @@
             "settings": { "foreground": "#DCDCAA" }
         },
         {
-            "name": "Lambda - Lua Anonymous Function",
+            "name": "Lambda - Lua anonymous function",
             "scope": [
                 "meta.function.lua",
                 "keyword.control.def.lua"
             ],
             "settings": { "foreground": "#DCDCAA" }
         },
+        {
+            "name": "Lambda - Rust closure pipes |x|",
+            "scope": [
+                "punctuation.definition.parameters.rust",
+                "meta.function.closure.rust"
+            ],
+            "settings": { "foreground": "#DCDCAA" }
+        },
 
-        // == INVALID / ERROR
+        // ── INVALID / ERROR ───────────────────────────────────────────────────
         {
             "name": "Invalid",
             "scope": [
@@ -919,7 +1074,7 @@
             "settings": { "foreground": "#F44747" }
         },
 
-        // == TAG (HTML / XML)
+        // ── TAG (HTML / XML) ──────────────────────────────────────────────────
         {
             "name": "Tag Name",
             "scope": [
@@ -938,7 +1093,7 @@
             "settings": { "fontStyle": "italic", "foreground": "#dfd9c2" }
         },
 
-        // == CSS
+        // ── CSS ───────────────────────────────────────────────────────────────
         {
             "name": "CSS Class Selector",
             "scope": [ "entity.other.attribute-name.class" ],
@@ -957,9 +1112,9 @@
             "settings": { "foreground": "#9CDCFE" }
         },
 
-        // == MARKUP (MARKDOWN)
+        // ── MARKUP (MARKDOWN) ─────────────────────────────────────────────────
         {
-            "name": "Markdown - Plain",
+            "name": "Markdown - Plain text",
             "scope": [
                 "text.html.markdown",
                 "punctuation.definition.list_item.markdown"
@@ -976,12 +1131,12 @@
             "settings": { "foreground": "#c1b6a3" }
         },
         {
-            "name": "Markdown - Inline Code",
+            "name": "Markdown - Inline code",
             "scope": [ "text.html.markdown markup.inline.raw.markdown" ],
             "settings": { "foreground": "#CE9178" }
         },
         {
-            "name": "Markdown - Inline Code Punctuation",
+            "name": "Markdown - Inline code punctuation",
             "scope": [ "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown" ],
             "settings": { "foreground": "#5A5A5A" }
         },
@@ -1011,22 +1166,22 @@
             "settings": { "fontStyle": "italic" }
         },
         {
-            "name": "Markdown - Link Title",
+            "name": "Markdown - Link title",
             "scope": [ "string.other.link.title.markdown" ],
             "settings": { "foreground": "#569CD6" }
         },
         {
-            "name": "Markdown - Link Description",
+            "name": "Markdown - Link description",
             "scope": [ "string.other.link.description.title.markdown" ],
             "settings": { "foreground": "#BD63C5" }
         },
         {
-            "name": "Markdown - Link Anchor",
+            "name": "Markdown - Link anchor",
             "scope": [ "constant.other.reference.link.markdown" ],
             "settings": { "foreground": "#D7BA7D" }
         },
         {
-            "name": "Markdown - Raw / Fenced Block",
+            "name": "Markdown - Raw / Fenced block",
             "scope": [
                 "markup.raw.block",
                 "markup.raw.block.fenced.markdown",
@@ -1036,7 +1191,7 @@
             "settings": { "foreground": "#404040" }
         },
         {
-            "name": "Markdown - Fenced Language Label",
+            "name": "Markdown - Fenced language label",
             "scope": [ "variable.language.fenced.markdown" ],
             "settings": { "foreground": "#636369" }
         },
@@ -1066,7 +1221,8 @@
             "settings": { "foreground": "#E2C08D" }
         },
 
-        // == JSON KEY LEVELS
+        // ── JSON KEY LEVELS ───────────────────────────────────────────────────
+        // Each nesting depth gets a distinct color so it's easy to tell how deep you are.
         {
             "name": "JSON Key - Level 0",
             "scope": [ "source.json meta.structure.dictionary.json support.type.property-name.json" ],
@@ -1113,7 +1269,7 @@
             "settings": { "foreground": "#4EC9B0" }
         },
 
-        // == MISC
+        // ── MISC ──────────────────────────────────────────────────────────────
         {
             "name": "URL (underline only)",
             "scope": [ "*url*", "*link*", "*uri*" ],
