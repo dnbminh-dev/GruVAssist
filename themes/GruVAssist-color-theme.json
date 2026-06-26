@@ -80,8 +80,9 @@
         // explicit modifier variants (cpptools / clangd)
         "variable.local:cpp":   "#9CDCFE",
         "variable.local:c":     "#9CDCFE",
-        "variable.global:cpp":  "#4EC9B0",
-        "variable.global:c":    "#4EC9B0",
+        "variable.global:cpp":  "#83a598",
+        "variable.global:c":    "#83a598",
+        "variable.global:lua": "#83a598",
 
         // ── VARIABLES — MEMBER / FIELD  →  tan #dfd9c2 ────────────────────────
         // cpptools uses semantic type "property" for instance member variables.
