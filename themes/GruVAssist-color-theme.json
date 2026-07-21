@@ -349,6 +349,7 @@
             "scope": [
                 "keyword.operator.new.cpp",
                 "keyword.operator.delete.cpp",
+                "keyword.operator.delete.array.cpp",
                 "keyword.operator.new.cs",
                 "keyword.other.typeof.cs",
                 "keyword.other.nameof.cs",
